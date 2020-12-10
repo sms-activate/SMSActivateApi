@@ -1,9 +1,9 @@
 package example.api.activation;
 
-import com.sms_activate.SMSActivateApi;
-import com.sms_activate.client_enums.SMSActivateClientStatus;
-import com.sms_activate.error.base.SMSActivateBaseException;
-import com.sms_activate.response.api_activation.SMSActivateActivation;
+import ru.sms_activate.SMSActivateApi;
+import ru.sms_activate.client_enums.SMSActivateClientStatus;
+import ru.sms_activate.error.base.SMSActivateBaseException;
+import ru.sms_activate.response.api_activation.SMSActivateActivation;
 import org.jetbrains.annotations.NotNull;
 
 /**

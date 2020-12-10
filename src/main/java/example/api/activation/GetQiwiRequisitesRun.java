@@ -1,11 +1,11 @@
 package example.api.activation;
 
-import com.sms_activate.SMSActivateApi;
-import com.sms_activate.error.base.SMSActivateBaseException;
-import com.sms_activate.error.wrong_parameter.SMSActivateWrongParameter;
-import com.sms_activate.error.wrong_parameter.SMSActivateWrongParameterException;
-import com.sms_activate.response.qiwi.SMSActivateGetQiwiRequisitesResponse;
-import com.sms_activate.response.qiwi.SMSActivateQiwiStatus;
+import ru.sms_activate.SMSActivateApi;
+import ru.sms_activate.error.base.SMSActivateBaseException;
+import ru.sms_activate.error.wrong_parameter.SMSActivateWrongParameter;
+import ru.sms_activate.error.wrong_parameter.SMSActivateWrongParameterException;
+import ru.sms_activate.response.qiwi.SMSActivateGetQiwiRequisitesResponse;
+import ru.sms_activate.response.qiwi.SMSActivateQiwiStatus;
 
 /**
  * If you need to automatically replenish the balance through your payment API, the getQiwiRequisites method will

@@ -1,12 +1,12 @@
 package example.api.rent;
 
-import com.sms_activate.SMSActivateApi;
-import com.sms_activate.client_enums.SMSActivateClientRentStatus;
-import com.sms_activate.error.base.SMSActivateBaseException;
-import com.sms_activate.error.wrong_parameter.SMSActivateWrongParameter;
-import com.sms_activate.error.wrong_parameter.SMSActivateWrongParameterException;
-import com.sms_activate.response.api_rent.SMSActivateGetRentListResponse;
-import com.sms_activate.response.api_rent.extra.SMSActivateRentActivation;
+import ru.sms_activate.SMSActivateApi;
+import ru.sms_activate.client_enums.SMSActivateClientRentStatus;
+import ru.sms_activate.error.base.SMSActivateBaseException;
+import ru.sms_activate.error.wrong_parameter.SMSActivateWrongParameter;
+import ru.sms_activate.error.wrong_parameter.SMSActivateWrongParameterException;
+import ru.sms_activate.response.api_rent.SMSActivateGetRentListResponse;
+import ru.sms_activate.response.api_rent.extra.SMSActivateRentActivation;
 
 /**
  * How to get number and the current list of rented phone numbers.

@@ -1,13 +1,13 @@
 package example.api.activation;
 
-import com.sms_activate.SMSActivateApi;
-import com.sms_activate.client_enums.SMSActivateClientStatus;
-import com.sms_activate.error.base.SMSActivateBaseException;
-import com.sms_activate.error.base.SMSActivateBaseTypeError;
-import com.sms_activate.error.wrong_parameter.SMSActivateWrongParameter;
-import com.sms_activate.error.wrong_parameter.SMSActivateWrongParameterException;
-import com.sms_activate.response.api_activation.SMSActivateActivation;
-import com.sms_activate.response.api_activation.SMSActivateGetMultiServiceNumberResponse;
+import ru.sms_activate.SMSActivateApi;
+import ru.sms_activate.client_enums.SMSActivateClientStatus;
+import ru.sms_activate.error.base.SMSActivateBaseException;
+import ru.sms_activate.error.base.SMSActivateBaseTypeError;
+import ru.sms_activate.error.wrong_parameter.SMSActivateWrongParameter;
+import ru.sms_activate.error.wrong_parameter.SMSActivateWrongParameterException;
+import ru.sms_activate.response.api_activation.SMSActivateActivation;
+import ru.sms_activate.response.api_activation.SMSActivateGetMultiServiceNumberResponse;
 
 import java.util.HashMap;
 import java.util.HashSet;

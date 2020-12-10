@@ -1,14 +1,14 @@
 package example.api.rent;
 
-import com.sms_activate.SMSActivateApi;
-import com.sms_activate.client_enums.SMSActivateClientRentStatus;
-import com.sms_activate.error.base.SMSActivateBaseException;
-import com.sms_activate.error.base.SMSActivateBaseTypeError;
-import com.sms_activate.error.wrong_parameter.SMSActivateWrongParameter;
-import com.sms_activate.error.wrong_parameter.SMSActivateWrongParameterException;
-import com.sms_activate.response.api_rent.SMSActivateGetRentStatusResponse;
-import com.sms_activate.response.api_rent.extra.SMSActivateRentActivation;
-import com.sms_activate.response.api_rent.extra.SMSActivateSMS;
+import ru.sms_activate.SMSActivateApi;
+import ru.sms_activate.client_enums.SMSActivateClientRentStatus;
+import ru.sms_activate.error.base.SMSActivateBaseException;
+import ru.sms_activate.error.base.SMSActivateBaseTypeError;
+import ru.sms_activate.error.wrong_parameter.SMSActivateWrongParameter;
+import ru.sms_activate.error.wrong_parameter.SMSActivateWrongParameterException;
+import ru.sms_activate.response.api_rent.SMSActivateGetRentStatusResponse;
+import ru.sms_activate.response.api_rent.extra.SMSActivateRentActivation;
+import ru.sms_activate.response.api_rent.extra.SMSActivateSMS;
 
 import java.util.List;
 

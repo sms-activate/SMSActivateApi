@@ -4,14 +4,13 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>org.sms_api</groupId>
-  <artifactId>sms-activate</artifactId>
-  <version>1.0</version>
-  <packaging>pom</packaging>
+  <groupId>ru.sms-activate</groupId>
+  <artifactId>SMSActivateApi</artifactId>
+  <version>1.0.0</version>
 
-  <name>SmsActivateApi</name>
+  <name>SMSActivateApi</name>
   <description>Lib for working with sms activate API.</description>
-  <url>https://github.com/VladislavBakshanskij/SMSActivateApi</url>
+  <url>https://github.com/sms-activate/SMSActivateApi</url>
 
   <licenses>
     <license>
@@ -21,9 +20,9 @@
   </licenses>
 
   <scm>
-    <connection>scm:git:git://github.com/VladislavBakshanskij/SMSActivateApi</connection>
-    <developerConnection>scm:git:ssh://github.com:VladislavBakshanskij/SMSActivateApi.git</developerConnection>
-    <url>https://github.com/VladislavBakshanskij/SMSActivateApi/tree/master</url>
+    <connection>scm:git:git://github.com/sms-activate/SMSActivateApi</connection>
+    <developerConnection>scm:git:ssh://github.com:sms-activate/SMSActivateApi.git</developerConnection>
+    <url>https://github.com/sms-activate/SMSActivateApi/tree/master</url>
   </scm>
 
   <dependencies>
@@ -74,18 +73,6 @@
   </build>
 
   <profiles>
-    <!-- Enable integration tests only when not deploying
-        ~ https://stackoverflow.com/questions/25305850/how-to-disable-nexus-staging-maven-plugin-in-sub-modules
-        -->
-    <profile>
-      <id>no-deploy</id>
-      <activation>
-        <property>
-          <name>!release</name>
-        </property>
-      </activation>
-    </profile>
-
     <profile>
       <id>release</id>
       <activation>

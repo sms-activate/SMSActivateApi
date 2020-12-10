@@ -1,11 +1,11 @@
 package example.api.activation;
 
-import com.sms_activate.SMSActivateApi;
-import com.sms_activate.error.base.SMSActivateBaseException;
-import com.sms_activate.error.wrong_parameter.SMSActivateWrongParameter;
-import com.sms_activate.error.wrong_parameter.SMSActivateWrongParameterException;
-import com.sms_activate.response.api_activation.SMSActivateGetPricesResponse;
-import com.sms_activate.response.api_activation.extra.SMSActivateGetPriceInfo;
+import ru.sms_activate.SMSActivateApi;
+import ru.sms_activate.error.base.SMSActivateBaseException;
+import ru.sms_activate.error.wrong_parameter.SMSActivateWrongParameter;
+import ru.sms_activate.error.wrong_parameter.SMSActivateWrongParameterException;
+import ru.sms_activate.response.api_activation.SMSActivateGetPricesResponse;
+import ru.sms_activate.response.api_activation.extra.SMSActivateGetPriceInfo;
 
 import java.util.Set;
 

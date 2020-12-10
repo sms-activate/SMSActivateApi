@@ -1,10 +1,10 @@
 package example.api.rent;
 
-import com.sms_activate.SMSActivateApi;
-import com.sms_activate.error.base.SMSActivateBaseException;
-import com.sms_activate.error.wrong_parameter.SMSActivateWrongParameter;
-import com.sms_activate.error.wrong_parameter.SMSActivateWrongParameterException;
-import com.sms_activate.response.api_rent.SMSActivateGetRentServicesAndCountriesResponse;
+import ru.sms_activate.SMSActivateApi;
+import ru.sms_activate.error.base.SMSActivateBaseException;
+import ru.sms_activate.error.wrong_parameter.SMSActivateWrongParameter;
+import ru.sms_activate.error.wrong_parameter.SMSActivateWrongParameterException;
+import ru.sms_activate.response.api_rent.SMSActivateGetRentServicesAndCountriesResponse;
 
 /**
  * To get all countries with rent and data about services by country use the getRentServicesAndCountries method.
