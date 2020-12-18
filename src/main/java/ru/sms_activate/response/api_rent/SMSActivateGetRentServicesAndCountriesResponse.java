@@ -30,6 +30,7 @@ public class SMSActivateGetRentServicesAndCountriesResponse {
    *
    * @param serviceShortName short service name.
    * @return service rent.
+   * @throws SMSActivateWrongParameterException if service name is incorrect.
    */
   @NotNull
   public SMSActivateRentService getRentServiceByShortName(@NotNull String serviceShortName) throws SMSActivateWrongParameterException {

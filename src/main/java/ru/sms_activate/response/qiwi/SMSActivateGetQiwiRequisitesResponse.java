@@ -1,8 +1,8 @@
 package ru.sms_activate.response.qiwi;
 
-import ru.sms_activate.error.SMSActivateUnknownException;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import ru.sms_activate.error.SMSActivateUnknownException;
 
 public class SMSActivateGetQiwiRequisitesResponse {
   /**
@@ -33,6 +33,7 @@ public class SMSActivateGetQiwiRequisitesResponse {
    * Returns the status qiwi wallet.
    *
    * @return status qiwi wallet.
+   * @throws SMSActivateUnknownException if status not be documented.
    */
   @NotNull
   public SMSActivateQiwiStatus getStatus() throws SMSActivateUnknownException {

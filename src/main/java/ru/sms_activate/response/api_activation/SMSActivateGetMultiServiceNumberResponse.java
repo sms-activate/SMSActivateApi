@@ -26,7 +26,7 @@ public class SMSActivateGetMultiServiceNumberResponse {
    *
    * @param activationId id activation.
    * @return activation.
-   * @throws SMSActivateWrongParameter if id is incorrect.
+   * @throws SMSActivateWrongParameterException if id is incorrect.
    */
   @NotNull
   public SMSActivateActivation get(int activationId) throws SMSActivateWrongParameterException {

@@ -14,6 +14,7 @@ public class SMSActivateBannedException extends SMSActivateBaseException {
    *
    * @param englishMessage message on english language.
    * @param russianMessage message on russian language.
+   * @param endDate date to end ban.
    */
   public SMSActivateBannedException(@NotNull String englishMessage, @NotNull String russianMessage, @NotNull String endDate) {
     super(englishMessage, russianMessage);

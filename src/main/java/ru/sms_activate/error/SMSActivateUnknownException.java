@@ -14,6 +14,7 @@ public class SMSActivateUnknownException extends SMSActivateBaseException {
    * Constructor unknown sms activate exception with multi-lang.
    *
    * @param error name not documented error.
+   * @param messageUnknownError message unknown error.
    */
   public SMSActivateUnknownException(@NotNull String error, @Nullable String messageUnknownError) {
     super("Send request developer.", "Обратитесь к разработчикам.");
@@ -31,6 +32,7 @@ public class SMSActivateUnknownException extends SMSActivateBaseException {
   }
 
   @Override
+  @NotNull
   public String getMessage() {
     String eng = super.getEnglishMessage() + " " + this.messageUnknownError;
     String rus = super.getRussianMessage() + " " + this.messageUnknownError;

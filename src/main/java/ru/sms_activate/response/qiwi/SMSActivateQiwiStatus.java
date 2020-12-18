@@ -80,6 +80,7 @@ public enum SMSActivateQiwiStatus {
    *
    * @param response status name.
    * @return status or unknown if not contains.
+   * @throws SMSActivateUnknownException if status not contains in enum.
    */
   @NotNull
   public static SMSActivateQiwiStatus getStatusByName(@NotNull String response) throws SMSActivateUnknownException {

@@ -83,7 +83,7 @@ public enum SMSActivateBaseTypeError {
   }
 
   /**
-   * Returns status by specified name.<br/>
+   * Returns status by specified name.
    * if name not contains in enum then returns UNKNOWN.
    *
    * @param name specified name status.
