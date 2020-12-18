@@ -11,7 +11,6 @@ import ru.sms_activate.error.wrong_parameter.SMSActivateWrongParameter;
 import ru.sms_activate.error.wrong_parameter.SMSActivateWrongParameterException;
 import ru.sms_activate.listener.SMSActivateExceptionListener;
 import ru.sms_activate.listener.SMSActivateWebClientListener;
-import com.sms_activate.response.api_activation.*;
 import ru.sms_activate.response.api_activation.*;
 import ru.sms_activate.response.api_activation.enums.SMSActivateGetStatusActivation;
 import ru.sms_activate.response.api_activation.enums.SMSActivateServerStatus;
