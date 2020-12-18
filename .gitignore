@@ -8,7 +8,9 @@
 **/Main.java
 
 **/.PVS-Studio/**
+**/*.md
 
+**/example/
 
 # User-specific stuff
 **/.idea/

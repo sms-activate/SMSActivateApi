@@ -44,7 +44,6 @@ public class SMSActivateServiceInfo {
     return forward;
   }
 
-
   /**
    * Returns the count of service numbers.
    *
