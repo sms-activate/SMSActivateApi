@@ -9,7 +9,7 @@ public enum SMSActivateBaseTypeError {
   CANT_CANCEL("CANT_CANCEL", "Невозможно отменить аренду (более 20 мин.).", "It is impossible to cancel the rent(more than 20 min.)."),
   ALREADY_FINISH("ALREADY_FINISH", "Аренда уже заверщена.", "Rent has already been finished."),
   ALREADY_CANCEL("ALREADY_CANCEL", "Аренда уже отменена.", "Rent has already been canceled."),
-  WAIT_CODE("STATUS_WAIT_CODE", "Ожидание первой смс", "Waiting for the first SMS."),
+  WAIT_CODE("STATUS_WAIT_CODE", "Ожидание первой смс.", "Waiting for the first SMS."),
   RENT_CANCEL("STATUS_CANCEL", "Аренда отменена с возвратом денег.", "Rent canceled with a refund."),
   RENT_FINISH("STATUS_FINISH", "Аренда оплачена и завершенна.", "Rent has been paid and finished"),
   ;

@@ -1323,7 +1323,7 @@ public class SMSActivateApi {
    *                                              </ul>
    */
   @NotNull
-  public SMSActivateRentStatus setRentStatus(SMSActivateRentActivation rentActivation, @NotNull SMSActivateClientRentStatus status)
+  public SMSActivateRentStatus setRentStatus(@NotNull SMSActivateRentActivation rentActivation, @NotNull SMSActivateClientRentStatus status)
     throws SMSActivateBaseException {
     return setRentStatus(rentActivation.getId(), status);
   }

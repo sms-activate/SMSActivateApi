@@ -1,38 +1,66 @@
-# Api
-## File struct
+# SMSActivateApi
 
-> to de continued.....
+## Начало работы 
 
-### Packages
-....
+Включите библиотеку в maven.
 
-## Getting started 
-Include lib in maven
 ```xml
 <dependecy>
-  <groupId>to be continued...</groupId>
-  <artifactId>to be continued...</artifactId>
+  <groupId>ru.sms-activate</groupId>
+  <artifactId>SMSActivateApi</artifactId>
+  <version>1.0</version>
 </dependecy>
 ```
 
-Import lib in your project.
+Импортируйте главный класс для взаимодействия с API sms-activate.
 ```java
-import to be continued....SMSActivateApi;
+import ru.sms_activate.SMSActivateApi;
 ```
 
-To use this lib you are need API-key and referral link from site.
-
-In these links your can get API-key and referral link.
+Для использования библитеки вам необходим API ключ, его можно получить по ссылкам ниже.
 
 * [SMS-Activate API docs](https://sms-activate.ru/ru/api2)
-  
-* [SMS-Activate referral identifier](https://sms-activate.ru/ru/pp)
-  
+
 * [SMS-Activate API-Key](https://sms-activate.ru/ru/profile)
 
-### Check all service
+<hr/>
 
-For checking all services use method getNumbersStatus
+### Получение баланса на вашем аккаунте
 
-Example
-....
+Для получение текущего баланса на вашем аккаунте используйте метод [**getBalance**](./docs/SMSActivateApi.md#getBalance). Если вас интересует помимо баланса кэшбэк, то вызовите метод [**getBalanceAndCashBack**](./docs/SMSActivateApi.md#getBalanceAndCashBack).
+
+Метод [**getBalanceAndCashBack**](./docs/SMSActivateApi.md#getBalanceAndCashBack) возращает объект класса [**SMSActivateGetBalanceAndCashBack**](docs/response/api_activation/SMSActivateGetBalanceAndCashBack.md).
+
+`Пример`
+```java
+import ru.sms_activate.SMSActivateApi;
+import ru.sms_activate.error.base.SMSActivateBaseException;
+import ru.sms_activate.response.api_activation.SMSActivateGetBalanceAndCashBackResponse;
+
+import java.math.BigDecimal;
+
+public class Run {
+  public static void main(String[] args) {
+    try {
+      SMSActivateApi smsActivateApi = new SMSActivateApi("API_KEY");
+
+      System.out.println("Your api-key: " + smsActivateApi.getApiKey());
+
+      // request balance
+      BigDecimal balance = smsActivateApi.getBalance();
+
+      //request balance and cashback
+      SMSActivateGetBalanceAndCashBackResponse smsActivateGetBalanceAndCashBackResponse = smsActivateApi.getBalanceAndCashBack();
+
+      // print info about score
+      System.out.println("Balance: " + balance);
+      System.out.println("Cashback: " + smsActivateGetBalanceAndCashBackResponse.getCashBack());
+      System.out.println("Cashback + balance: " + smsActivateGetBalanceAndCashBackResponse.getBalanceAndCashBack());
+    } catch (SMSActivateBaseException e) {
+      System.out.println(e.getMessage());
+    }
+  }
+}
+```
+
+### *Для большего числа примеров воспользуйтесь репозиторием на [github](https://github.com/sms-activate/examples-using-api/).*

@@ -3,8 +3,8 @@ package ru.sms_activate.client_enums;
 import org.jetbrains.annotations.NotNull;
 
 public enum SMSActivateClientRentStatus {
-  FINISH(1, "Завершить активацию.", "Finish the activation."),
-  CANCEL(2, "Сообщить о том, что номер использован и отменить активацию", "Report that the number has been used and cancel activation."),
+  FINISH(1, "Завершить аренду.", "Finish the rent."),
+  CANCEL(2, "Отменить аренду.", "Cancel the rent."),
   ;
 
   /**

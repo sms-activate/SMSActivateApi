@@ -4,7 +4,7 @@ import org.jetbrains.annotations.NotNull;
 
 public enum SMSActivateRentStatus {
   SUCCESS("SUCCESS", "Все успешно.", "Successfully."),
-  ERROR("ERROR", "Сообщить о том, что номер использован и отменить активацию", "Report that the number has been used and cancel activation."),
+  ERROR("ERROR", "Произошла ошибка.", "Error has occurred."),
   ;
 
   /**
