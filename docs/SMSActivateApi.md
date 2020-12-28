@@ -259,7 +259,7 @@ serviceShortName | String | Короткое имя сервиса | Да.
 `отсутствуют`
 
 Возвращаемый тип:
-[**SMSActivateGetCountriesResponse](response/api_activation/SMSActivateGetCountriesResponse.md)
+[**SMSActivateGetCountriesResponse**](response/api_activation/SMSActivateGetCountriesResponse.md)
 
 <hr/>
 
@@ -272,7 +272,7 @@ serviceShortName | String | Короткое имя сервиса | Да.
 `отсутствуют`
 
 Возвращаемый тип:
-[**SMSActivateGetQiwiRequisitesResponse](response/qiwi/SMSActivateGetQiwiRequisitesResponse.md)
+[**SMSActivateGetQiwiRequisitesResponse**](response/qiwi/SMSActivateGetQiwiRequisitesResponse.md)
 
 <hr/>
 
