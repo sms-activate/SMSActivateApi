@@ -60,6 +60,11 @@ public class SMSActivateApi {
   private static final Pattern patternDigit = Pattern.compile("\\d+(?:[\\.,]\\d+)?");
 
   /**
+   * Max size of count activations in one request.
+   */
+  private static final int MAX_BATCH_SIZE = 10;
+
+  /**
    * Special validator for server responses.
    */
   private final SMSActivateValidator validator = new SMSActivateValidator();
@@ -67,7 +72,7 @@ public class SMSActivateApi {
   /**
    * Api key from site.
    */
-  private final String apiKey;
+  private String apiKey;
 
   /**
    * Referral identifier.
@@ -87,7 +92,6 @@ public class SMSActivateApi {
    * Constructor API sms-activate with API key.
    *
    * @param apiKey API key (not be null).
-   * @throws SMSActivateWrongParameterException if api-key is incorrect.
    */
   public SMSActivateApi(@NotNull String apiKey) {
     this.apiKey = apiKey;
@@ -109,6 +113,15 @@ public class SMSActivateApi {
    */
   public void setSmsActivateExceptionListener(@NotNull SMSActivateExceptionListener smsActivateExceptionListener) {
     this.validator.setSmsActivateExceptionListener(smsActivateExceptionListener);
+  }
+
+  /**
+   * Sets the apiKey.
+   *
+   * @param apiKey api key sms-activate.
+   */
+  public void setApiKey(@NotNull String apiKey) {
+    this.apiKey = apiKey;
   }
 
   /**
