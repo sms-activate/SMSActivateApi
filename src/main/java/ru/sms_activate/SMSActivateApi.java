@@ -1501,7 +1501,7 @@ public class SMSActivateApi {
    * Returns the list of current activations.
    *
    * @param start serial number of the first requested activation (default 0).
-   * @param length serial number of the last requested activation (default 10). <br>
+   * @param length count activations in one query (default ({@value MAX_BATCH_SIZE})). <br>
    * Maximum number of activations in one request - {@value MAX_BATCH_SIZE}
    * @return list of current activations.
    * @throws SMSActivateWrongParameterException if one of parameters is incorrect.
@@ -1509,21 +1509,14 @@ public class SMSActivateApi {
    */
   @NotNull
   public SMSActivateGetCurrentActivations getCurrentActivations(int start, int length) throws SMSActivateBaseException {
-    if (start > length) {
-      throw new SMSActivateWrongParameterException(
-        "The starting ordinal must be less than the ending.",
-        "Начальный порядковый индекс должен быть меньше конечного."
-      );
-    } else if (start < 0) {
+    if (start < 0) {
       throw new SMSActivateWrongParameterException(
         "The serial number of the first activation requested must be positive.",
         "Серийный номер первой запрошенной активации должен быть положительным."
       );
     }
 
-    int batchSize = length - start;
-
-    if (batchSize > MAX_BATCH_SIZE) {
+    if (length > MAX_BATCH_SIZE) {
       throw new SMSActivateWrongParameterException(
         "The number of received activations in the request must be no more than 10.",
         "Количество получаемых активаций в запросе должно быть неболее 10."
