@@ -20,7 +20,9 @@ enum SMSActivateAction {
   GET_RENT_STATUS("getRentStatus"),
   SET_RENT_STATUS("setRentStatus"),
   GET_RENT_LIST("getRentList"),
-  GET_CURRENT_ACTIVATIONS("getListOfActiveActivations")
+  GET_CURRENT_ACTIVATIONS("getListOfActiveActivations"),
+  GET_NUMBERS_STATUS_AND_MEDIUM_SMS_TIME("getNumbersStatusAndMediumSmsTime"),
+  GET_AVAILABLE_SERVICES_BY_COUNTRY("getAvailableServicesByCountry"),
   ;
 
   /**

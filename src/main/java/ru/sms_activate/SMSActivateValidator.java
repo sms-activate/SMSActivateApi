@@ -1,5 +1,7 @@
 package ru.sms_activate;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import ru.sms_activate.error.SMSActivateBannedException;
 import ru.sms_activate.error.SMSActivateUnknownException;
 import ru.sms_activate.error.base.SMSActivateBaseException;
@@ -7,8 +9,6 @@ import ru.sms_activate.error.base.SMSActivateBaseTypeError;
 import ru.sms_activate.error.wrong_parameter.SMSActivateWrongParameter;
 import ru.sms_activate.error.wrong_parameter.SMSActivateWrongParameterException;
 import ru.sms_activate.listener.SMSActivateExceptionListener;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 class SMSActivateValidator {
   /**
