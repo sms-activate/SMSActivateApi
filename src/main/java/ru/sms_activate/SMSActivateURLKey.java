@@ -24,7 +24,8 @@ enum SMSActivateURLKey {
   START("start"),
   LENGTH("length"),
   ORDER("order"),
-  ORDER_BY("orderBy");
+  ORDER_BY("orderBy"),
+  ACT("act");
 
   /**
    * Name parameter in URL.

@@ -17,6 +17,7 @@ import ru.sms_activate.response.api_activation.*;
 import ru.sms_activate.response.api_activation.enums.SMSActivateGetStatusActivation;
 import ru.sms_activate.response.api_activation.enums.SMSActivateServerStatus;
 import ru.sms_activate.response.api_activation.enums.SMSActivateStatusNumber;
+import ru.sms_activate.response.api_activation.extra.SMSActivateAvailableService;
 import ru.sms_activate.response.api_activation.extra.SMSActivateCountryInfo;
 import ru.sms_activate.response.api_activation.extra.SMSActivateGetPriceInfo;
 import ru.sms_activate.response.api_activation.extra.SMSActivateServiceInfo;
@@ -1394,7 +1395,6 @@ public class SMSActivateApi {
         statusResponse.getSMSActivateGetStatus() == SMSActivateGetStatusActivation.OK &&
           !statusResponse.getCodeFromSMS().equalsIgnoreCase(SMSActivateMagicConstant.NO_CODE)
       ) {
-
         return statusResponse.getCodeFromSMS();
       }
 
@@ -1500,8 +1500,8 @@ public class SMSActivateApi {
   /**
    * Returns the list of current activations.
    *
-   * @param start serial number of the first requested activation.
-   * @param length serial number of the last requested activation. <br>
+   * @param start serial number of the first requested activation (default 0).
+   * @param length serial number of the last requested activation (default 10). <br>
    * Maximum number of activations in one request - {@value MAX_BATCH_SIZE}
    * @return list of current activations.
    * @throws SMSActivateWrongParameterException if one of parameters is incorrect.
@@ -1539,6 +1539,89 @@ public class SMSActivateApi {
 
     return new SMSActivateJsonParser().tryParseJson(jsonFromServer, new TypeToken<SMSActivateGetCurrentActivations>() {
     }.getType(), validator);
+  }
+
+  /**
+   * Returns the list available services with info.
+   *
+   * @return list available services with info.
+   * @throws SMSActivateWrongParameterException if one of parameters is incorrect.
+   * @throws SMSActivateUnknownException        if error type not documented.
+   */
+  @NotNull
+  public SMSActivateGetAvailableServices getAvailableServices() throws SMSActivateBaseException {
+    return getAvailableServicesByCountryId(0);
+  }
+
+  /**
+   * Returns the list available services with info by country id.
+
+   * @param countryId country id (default 0).
+   * @return list available services with info by country id.
+   * @throws SMSActivateWrongParameterException if one of parameters is incorrect.
+   * @throws SMSActivateUnknownException        if error type not documented.
+   */
+  @NotNull
+  public SMSActivateGetAvailableServices getAvailableServicesByCountryId(int countryId) throws SMSActivateBaseException {
+    if (countryId < 0) {
+      throw new SMSActivateWrongParameterException(SMSActivateWrongParameter.WRONG_COUNTRY_ID);
+    }
+
+    SMSActivateURLBuilder smsActivateURLBuilder = new SMSActivateURLBuilder(
+      SMSActivateMagicConstant.SPECIAL_API_URL,
+      SMSActivateURLKey.ACT,
+      SMSActivateAction.GET_AVAILABLE_SERVICES_BY_COUNTRY
+    );
+
+    smsActivateURLBuilder.append(SMSActivateURLKey.COUNTRY, String.valueOf(countryId));
+
+    SMSActivateWebClient smsActivateWebClient = new SMSActivateWebClient(smsActivateWebClientListener);
+    String jsonFromServer = smsActivateWebClient.getOrThrowCommonException(smsActivateURLBuilder, validator);
+
+    SMSActivateJsonParser jsonParser = new SMSActivateJsonParser();
+    TypeToken<List<SMSActivateAvailableService>> typeToken = new TypeToken<List<SMSActivateAvailableService>>() {
+    };
+
+    return new SMSActivateGetAvailableServices(jsonParser.tryParseJson(jsonFromServer, typeToken.getType(), validator));
+  }
+
+  /**
+   * Returns the current services with cost on site.
+   *
+   * @return current services with cost on site.
+   * @throws SMSActivateWrongParameterException if one of parameters is incorrect.
+   * @throws SMSActivateUnknownException        if error type not documented.
+   */
+  @NotNull
+  public SMSActivateGetNumbersStatusAndMediumSmsTime getNumbersStatusAndMediumSmsTime() throws SMSActivateBaseException {
+    return getNumbersStatusAndMediumSmsTimeByCountryId(0);
+  }
+
+  /**
+   * Returns the current services with cost on site by countryId.
+   *
+   * @param countryId country id (default 0).
+   * @return current services with cost on site by countryId.
+   * @throws SMSActivateWrongParameterException if one of parameters is incorrect.
+   * @throws SMSActivateUnknownException        if error type not documented.
+   */
+  @NotNull
+  public SMSActivateGetNumbersStatusAndMediumSmsTime getNumbersStatusAndMediumSmsTimeByCountryId(int countryId) throws SMSActivateBaseException {
+    if (countryId < 0) {
+      throw new SMSActivateWrongParameterException(SMSActivateWrongParameter.WRONG_COUNTRY_ID);
+    }
+
+    SMSActivateURLBuilder smsActivateURLBuilder = new SMSActivateURLBuilder(SMSActivateMagicConstant.SPECIAL_API_URL, SMSActivateURLKey.ACT, SMSActivateAction.GET_NUMBERS_STATUS_AND_MEDIUM_SMS_TIME);
+    smsActivateURLBuilder.append(SMSActivateURLKey.COUNTRY, String.valueOf(countryId));
+
+    SMSActivateWebClient webClient = new SMSActivateWebClient(smsActivateWebClientListener);
+    String jsonFromServer = webClient.getOrThrowCommonException(smsActivateURLBuilder, validator);
+
+    SMSActivateJsonParser jsonParser = new SMSActivateJsonParser();
+    TypeToken<Map<String, SMSActivateGetPriceInfo>> typeToken = new TypeToken<Map<String, SMSActivateGetPriceInfo>>() {
+    };
+
+    return new SMSActivateGetNumbersStatusAndMediumSmsTime(jsonParser.tryParseJson(jsonFromServer, typeToken.getType(), validator));
   }
 
   /**

@@ -15,14 +15,14 @@ import java.util.stream.Collectors;
  */
 class SMSActivateURLBuilder {
   /**
-   * API url.
-   */
-  private static final String BASE_URL = "https://sms-activate.ru/stubs/handler_api.php?";
-
-  /**
    * Map parameter URL.
    */
-  private final Map<SMSActivateURLKey, String> parameterMap;
+  private Map<SMSActivateURLKey, String> parameterMap;
+
+  /**
+   * API URL.
+   */
+  private String API_URL = "https://sms-activate.ru/stubs/handler_api.php?";
 
   /**
    * Constructor QueryStringBuilder with initialize values.
@@ -37,6 +37,13 @@ class SMSActivateURLBuilder {
     }};
   }
 
+  public SMSActivateURLBuilder(@NotNull String apiURL, @NotNull SMSActivateURLKey urlKey, @NotNull SMSActivateAction action) {
+    API_URL = apiURL;
+    parameterMap = new HashMap<SMSActivateURLKey, String>() {{
+      put(urlKey, action.getName());
+    }};
+  }
+
   /**
    * Appends the specified pair (key, value) to parameter URL.
    *
@@ -44,6 +51,13 @@ class SMSActivateURLBuilder {
    * @param value value to be associated with the specified key.
    */
   public SMSActivateURLBuilder append(@NotNull SMSActivateURLKey key, @Nullable String value) {
+    if (parameterMap == null) {
+      parameterMap = new HashMap<SMSActivateURLKey, String>(){{
+        put(key, value);
+      }};
+      return this;
+    }
+
     if (value == null || value.isEmpty()) {
       return this;
     }
@@ -68,6 +82,6 @@ class SMSActivateURLBuilder {
       .map(entry -> String.join("=", entry.getKey().getName(), entry.getValue()))
       .collect(Collectors.joining("&"));
 
-    return new URL(BASE_URL + urlParameters);
+    return new URL(API_URL + urlParameters);
   }
 }
