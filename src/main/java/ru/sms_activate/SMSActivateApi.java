@@ -1,6 +1,8 @@
 package ru.sms_activate;
 
 import com.google.gson.reflect.TypeToken;
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import ru.sms_activate.client_enums.SMSActivateClientRentStatus;
 import ru.sms_activate.client_enums.SMSActivateClientStatus;
 import ru.sms_activate.error.SMSActivateBannedException;
@@ -25,8 +27,6 @@ import ru.sms_activate.response.api_rent.enums.SMSActivateRentStatus;
 import ru.sms_activate.response.api_rent.extra.SMSActivateRentActivation;
 import ru.sms_activate.response.api_rent.extra.SMSActivateSMS;
 import ru.sms_activate.response.qiwi.SMSActivateGetQiwiRequisitesResponse;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.math.BigDecimal;
 import java.util.*;
@@ -79,17 +79,17 @@ public class SMSActivateApi {
    */
   private SMSActivateWebClientListener smsActivateWebClientListener;
 
+  public SMSActivateApi() {
+    this("");
+  }
+
   /**
    * Constructor API sms-activate with API key.
    *
    * @param apiKey API key (not be null).
    * @throws SMSActivateWrongParameterException if api-key is incorrect.
    */
-  public SMSActivateApi(@NotNull String apiKey) throws SMSActivateWrongParameterException {
-    if (apiKey.isEmpty()) {
-      throw new SMSActivateWrongParameterException(SMSActivateWrongParameter.EMPTY_KEY);
-    }
-
+  public SMSActivateApi(@NotNull String apiKey) {
     this.apiKey = apiKey;
   }
 
@@ -1469,6 +1469,63 @@ public class SMSActivateApi {
     }
 
     return smsActivateSMS;
+  }
+
+
+  /**
+   * Returns the list of current activations.
+   *
+   * @return list of current activations.
+   * @throws SMSActivateWrongParameterException if one of parameters is incorrect.
+   * @throws SMSActivateUnknownException        if error type not documented.
+   */
+  @NotNull
+  public SMSActivateGetCurrentActivations getCurrentActivations() throws SMSActivateBaseException {
+    return getCurrentActivations(0, 10);
+  }
+
+  /**
+   * Returns the list of current activations.
+   *
+   * @param start serial number of the first requested activation.
+   * @param length serial number of the last requested activation. <br>
+   * Maximum number of activations in one request - {@value MAX_BATCH_SIZE}
+   * @return list of current activations.
+   * @throws SMSActivateWrongParameterException if one of parameters is incorrect.
+   * @throws SMSActivateUnknownException        if error type not documented.
+   */
+  @NotNull
+  public SMSActivateGetCurrentActivations getCurrentActivations(int start, int length) throws SMSActivateBaseException {
+    if (start > length) {
+      throw new SMSActivateWrongParameterException(
+        "The starting ordinal must be less than the ending.",
+        "Начальный порядковый индекс должен быть меньше конечного."
+      );
+    } else if (start < 0) {
+      throw new SMSActivateWrongParameterException(
+        "The serial number of the first activation requested must be positive.",
+        "Серийный номер первой запрошенной активации должен быть положительным."
+      );
+    }
+
+    int batchSize = length - start;
+
+    if (batchSize > MAX_BATCH_SIZE) {
+      throw new SMSActivateWrongParameterException(
+        "The number of received activations in the request must be no more than 10.",
+        "Количество получаемых активаций в запросе должно быть неболее 10."
+      );
+    }
+
+    SMSActivateURLBuilder smsActivateURLBuilder = new SMSActivateURLBuilder(apiKey, SMSActivateAction.GET_CURRENT_ACTIVATIONS);
+    smsActivateURLBuilder.append(SMSActivateURLKey.START, String.valueOf(start))
+      .append(SMSActivateURLKey.LENGTH, String.valueOf(length));
+
+    String jsonFromServer = new SMSActivateWebClient(smsActivateWebClientListener)
+      .getOrThrowCommonException(smsActivateURLBuilder, validator);
+
+    return new SMSActivateJsonParser().tryParseJson(jsonFromServer, new TypeToken<SMSActivateGetCurrentActivations>() {
+    }.getType(), validator);
   }
 
   /**
