@@ -19,6 +19,7 @@ import ru.sms_activate.response.api_activation.enums.SMSActivateServerStatus;
 import ru.sms_activate.response.api_activation.enums.SMSActivateStatusNumber;
 import ru.sms_activate.response.api_activation.extra.*;
 import ru.sms_activate.response.api_rent.SMSActivateGetRentListResponse;
+import ru.sms_activate.response.api_rent.SMSActivateGetRentServices;
 import ru.sms_activate.response.api_rent.SMSActivateGetRentServicesAndCountriesResponse;
 import ru.sms_activate.response.api_rent.SMSActivateGetRentStatusResponse;
 import ru.sms_activate.response.api_rent.enums.SMSActivateRentStatus;
@@ -1613,6 +1614,65 @@ public class SMSActivateApi {
     };
 
     return new SMSActivateGetNumbersStatusAndMediumSmsTime(jsonParser.tryParseJson(jsonFromServer, typeToken.getType(), validator));
+  }
+
+  /**
+   * Returns the rent services and countries supported rent without apiKey.
+   *
+   * @return services and countries.
+   * @throws SMSActivateWrongParameterException if one of parameters is incorrect.
+   * @throws SMSActivateUnknownException        if error type not documented.
+   */
+  @NotNull
+  public SMSActivateGetRentServices getRentServices() throws SMSActivateBaseException {
+    return getRentServicesByCountryId(0);
+  }
+
+  /**
+   * Returns the rent services and countries supported rent by countryId without apiKey.
+   *
+   * @param countyId country id.
+   * @return services and countries supported rent by countryId.
+   * @throws SMSActivateWrongParameterException if one of parameters is incorrect.
+   * @throws SMSActivateUnknownException        if error type not documented.
+   */
+  @NotNull
+  public SMSActivateGetRentServices getRentServicesByCountryId(int countyId) throws SMSActivateBaseException {
+    return getRentServicesByCountryIdAndRentOperator(0, null);
+  }
+
+  /**
+   * Returns the rent services and countries supported rent by countryId and rent operator without apiKey
+   *
+   * @param countryId country id.
+   * @param rentOperator rent operator.
+   * @return services and countries supported rent by countryId and rent operator.
+   * @throws SMSActivateWrongParameterException if one of parameters is incorrect.
+   * @throws SMSActivateUnknownException        if error type not documented.
+   */
+  @NotNull
+  public SMSActivateGetRentServices getRentServicesByCountryIdAndRentOperator(int countryId, @Nullable String rentOperator) throws SMSActivateBaseException {
+    if (countryId < 0) {
+      throw new SMSActivateWrongParameterException(SMSActivateWrongParameter.WRONG_COUNTRY_ID);
+    }
+
+    SMSActivateURLBuilder urlBuilder = new SMSActivateURLBuilder(
+      SMSActivateMagicConstant.SPECIAL_API_RENT_URL,
+      SMSActivateURLKey.ACTION,
+      SMSActivateAction.GET_RENT_SERVICES
+    );
+
+    urlBuilder.append(SMSActivateURLKey.COUNTRY, String.valueOf(countryId))
+      .append(SMSActivateURLKey.OPERATOR_RENT_FORWARD, rentOperator);
+
+    SMSActivateWebClient webClient = new SMSActivateWebClient(smsActivateWebClientListener);
+    String jsonFromServer = webClient.getOrThrowCommonException(urlBuilder, validator);
+
+    SMSActivateJsonParser jsonParser = new SMSActivateJsonParser();
+    Type type = new TypeToken<SMSActivateGetRentServices>() {
+    }.getType();
+
+    return jsonParser.tryParseJson(jsonFromServer, type, validator);
   }
 
   /**

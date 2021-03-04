@@ -1,8 +1,8 @@
 package ru.sms_activate.response.api_rent;
 
+import org.jetbrains.annotations.NotNull;
 import ru.sms_activate.error.wrong_parameter.SMSActivateWrongParameterException;
 import ru.sms_activate.response.api_rent.extra.SMSActivateRentService;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.*;
 
