@@ -23,7 +23,7 @@ enum SMSActivateAction {
   GET_CURRENT_ACTIVATIONS("getListOfActiveActivations"),
   GET_NUMBERS_STATUS_AND_MEDIUM_SMS_TIME("getNumbersStatusAndMediumSmsTime"),
   GET_AVAILABLE_SERVICES_BY_COUNTRY("getAvailableServicesByCountry"),
-  ;
+  GET_RENT_SERVICES("getRentServices");
 
   /**
    * The name action for send request to server.
