@@ -76,4 +76,15 @@ public class SMSActivateCurrentActivation {
     public long getPhoneNumber() {
         return phoneNumber;
     }
+
+    @Override
+    public String toString() {
+        return "SMSActivateCurrentActivation{" +
+          "id=" + id +
+          ", forward=" + forward +
+          ", phoneNumber=" + phoneNumber +
+          ", service='" + service + '\'' +
+          ", country=" + country +
+          '}';
+    }
 }
