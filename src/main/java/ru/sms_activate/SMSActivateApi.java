@@ -17,10 +17,7 @@ import ru.sms_activate.response.api_activation.*;
 import ru.sms_activate.response.api_activation.enums.SMSActivateGetStatusActivation;
 import ru.sms_activate.response.api_activation.enums.SMSActivateServerStatus;
 import ru.sms_activate.response.api_activation.enums.SMSActivateStatusNumber;
-import ru.sms_activate.response.api_activation.extra.SMSActivateAvailableService;
-import ru.sms_activate.response.api_activation.extra.SMSActivateCountryInfo;
-import ru.sms_activate.response.api_activation.extra.SMSActivateGetPriceInfo;
-import ru.sms_activate.response.api_activation.extra.SMSActivateServiceInfo;
+import ru.sms_activate.response.api_activation.extra.*;
 import ru.sms_activate.response.api_rent.SMSActivateGetRentListResponse;
 import ru.sms_activate.response.api_rent.SMSActivateGetRentServicesAndCountriesResponse;
 import ru.sms_activate.response.api_rent.SMSActivateGetRentStatusResponse;
@@ -29,6 +26,7 @@ import ru.sms_activate.response.api_rent.extra.SMSActivateRentActivation;
 import ru.sms_activate.response.api_rent.extra.SMSActivateSMS;
 import ru.sms_activate.response.qiwi.SMSActivateGetQiwiRequisitesResponse;
 
+import java.lang.reflect.Type;
 import java.math.BigDecimal;
 import java.util.*;
 import java.util.regex.Matcher;
@@ -910,8 +908,8 @@ public class SMSActivateApi {
     String jsonFromServer = new SMSActivateWebClient(smsActivateWebClientListener).getOrThrowCommonException(smsActivateURLBuilder, validator);
     SMSActivateJsonParser jsonParser = new SMSActivateJsonParser();
 
-    Map<Integer, Map<String, SMSActivateGetPriceInfo>> smsActivateGetPriceMap = jsonParser.tryParseJson(jsonFromServer,
-      new TypeToken<Map<Integer, Map<String, SMSActivateGetPriceInfo>>>() {
+    Map<Integer, Map<String, SMSActivatePriceInfo>> smsActivateGetPriceMap = jsonParser.tryParseJson(jsonFromServer,
+      new TypeToken<Map<Integer, Map<String, SMSActivatePriceInfo>>>() {
       }.getType(), validator);
 
     return new SMSActivateGetPricesResponse(smsActivateGetPriceMap);
@@ -1561,7 +1559,7 @@ public class SMSActivateApi {
     }
 
     SMSActivateURLBuilder smsActivateURLBuilder = new SMSActivateURLBuilder(
-      SMSActivateMagicConstant.SPECIAL_API_URL,
+      SMSActivateMagicConstant.SPECIAL_API_ACTIVATION_URL,
       SMSActivateURLKey.ACT,
       SMSActivateAction.GET_AVAILABLE_SERVICES_BY_COUNTRY
     );
@@ -1604,14 +1602,14 @@ public class SMSActivateApi {
       throw new SMSActivateWrongParameterException(SMSActivateWrongParameter.WRONG_COUNTRY_ID);
     }
 
-    SMSActivateURLBuilder smsActivateURLBuilder = new SMSActivateURLBuilder(SMSActivateMagicConstant.SPECIAL_API_URL, SMSActivateURLKey.ACT, SMSActivateAction.GET_NUMBERS_STATUS_AND_MEDIUM_SMS_TIME);
+    SMSActivateURLBuilder smsActivateURLBuilder = new SMSActivateURLBuilder(SMSActivateMagicConstant.SPECIAL_API_ACTIVATION_URL, SMSActivateURLKey.ACT, SMSActivateAction.GET_NUMBERS_STATUS_AND_MEDIUM_SMS_TIME);
     smsActivateURLBuilder.append(SMSActivateURLKey.COUNTRY, String.valueOf(countryId));
 
     SMSActivateWebClient webClient = new SMSActivateWebClient(smsActivateWebClientListener);
     String jsonFromServer = webClient.getOrThrowCommonException(smsActivateURLBuilder, validator);
 
     SMSActivateJsonParser jsonParser = new SMSActivateJsonParser();
-    TypeToken<Map<String, SMSActivateGetPriceInfo>> typeToken = new TypeToken<Map<String, SMSActivateGetPriceInfo>>() {
+    TypeToken<Map<String, SMSActivatePriceInfo>> typeToken = new TypeToken<Map<String, SMSActivatePriceInfo>>() {
     };
 
     return new SMSActivateGetNumbersStatusAndMediumSmsTime(jsonParser.tryParseJson(jsonFromServer, typeToken.getType(), validator));
@@ -1631,7 +1629,7 @@ public class SMSActivateApi {
     Matcher matcher = patternDigit.matcher(balance);
 
     if (!matcher.find()) {
-      throw new SMSActivateBaseException("Error: " + balance, "Error: " + balance);
+      throw new SMSActivateBaseException("Error: " + balance, "Ошибка: " + balance);
     }
 
     return new BigDecimal(matcher.group());

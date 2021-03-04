@@ -3,7 +3,7 @@ package ru.sms_activate.response.api_activation;
 import org.jetbrains.annotations.NotNull;
 import ru.sms_activate.error.wrong_parameter.SMSActivateWrongParameter;
 import ru.sms_activate.error.wrong_parameter.SMSActivateWrongParameterException;
-import ru.sms_activate.response.api_activation.extra.SMSActivateGetPriceInfo;
+import ru.sms_activate.response.api_activation.extra.SMSActivatePriceInfo;
 
 import java.util.Map;
 
@@ -11,14 +11,14 @@ public class SMSActivateGetNumbersStatusAndMediumSmsTime {
   /**
    * Map current service price info where key is service shortname with suffix forward(_0, _1).
    */
-  private final Map<String, SMSActivateGetPriceInfo> smsActivateGetPriceInfoMap;
+  private final Map<String, SMSActivatePriceInfo> smsActivateGetPriceInfoMap;
 
   /**
    * Constructor response getNumbersStatusAndMediumSmsTime with data.
    *
    * @param smsActivateGetPriceInfoMap information about services.
    */
-  public SMSActivateGetNumbersStatusAndMediumSmsTime(@NotNull Map<String, SMSActivateGetPriceInfo> smsActivateGetPriceInfoMap) {
+  public SMSActivateGetNumbersStatusAndMediumSmsTime(@NotNull Map<String, SMSActivatePriceInfo> smsActivateGetPriceInfoMap) {
     this.smsActivateGetPriceInfoMap = smsActivateGetPriceInfoMap;
   }
 
@@ -28,7 +28,7 @@ public class SMSActivateGetNumbersStatusAndMediumSmsTime {
    * @return information about services.
    */
   @NotNull
-  public Map<String, SMSActivateGetPriceInfo> getSmsActivateGetPriceInfoMap() {
+  public Map<String, SMSActivatePriceInfo> getSmsActivateGetPriceInfoMap() {
     return smsActivateGetPriceInfoMap;
   }
 
@@ -40,7 +40,7 @@ public class SMSActivateGetNumbersStatusAndMediumSmsTime {
    * @throws SMSActivateWrongParameterException if service short name is incorrect.
    */
   @NotNull
-  public SMSActivateGetPriceInfo getPriceInfoByServiceShortNameWithoutForward(@NotNull String serviceShortName)
+  public SMSActivatePriceInfo getPriceInfoByServiceShortNameWithoutForward(@NotNull String serviceShortName)
       throws SMSActivateWrongParameterException {
     return getPriceInfoByServiceShortName(serviceShortName + "_0");
   }
@@ -53,7 +53,7 @@ public class SMSActivateGetNumbersStatusAndMediumSmsTime {
    * @throws SMSActivateWrongParameterException if service short name is incorrect.
    */
   @NotNull
-  public SMSActivateGetPriceInfo getPriceInfoByServiceShortNameWithForward(@NotNull String serviceShortName)
+  public SMSActivatePriceInfo getPriceInfoByServiceShortNameWithForward(@NotNull String serviceShortName)
       throws SMSActivateWrongParameterException {
     return getPriceInfoByServiceShortName(serviceShortName + "_1");
   }
@@ -66,14 +66,21 @@ public class SMSActivateGetNumbersStatusAndMediumSmsTime {
    * @throws SMSActivateWrongParameterException if service short name is incorrect.
    */
   @NotNull
-  private SMSActivateGetPriceInfo getPriceInfoByServiceShortName(@NotNull String serviceShortName)
+  private SMSActivatePriceInfo getPriceInfoByServiceShortName(@NotNull String serviceShortName)
       throws SMSActivateWrongParameterException {
-    SMSActivateGetPriceInfo smsActivateGetPriceInfo = smsActivateGetPriceInfoMap.get(serviceShortName);
+    SMSActivatePriceInfo smsActivatePriceInfo = smsActivateGetPriceInfoMap.get(serviceShortName);
 
-    if (smsActivateGetPriceInfo == null) {
+    if (smsActivatePriceInfo == null) {
       throw new SMSActivateWrongParameterException(SMSActivateWrongParameter.BAD_SERVICE);
     }
 
-    return smsActivateGetPriceInfo;
+    return smsActivatePriceInfo;
+  }
+
+  @Override
+  public String toString() {
+    return "SMSActivateGetNumbersStatusAndMediumSmsTime{" +
+      "smsActivateGetPriceInfoMap=" + smsActivateGetPriceInfoMap +
+      '}';
   }
 }

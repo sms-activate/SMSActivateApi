@@ -43,7 +43,7 @@ public class SMSActivateAvailableService {
    */
   @NotNull
   public String getFullNameRu() {
-    return fullNameRu;
+    return fullNameRu.replaceAll("<.+?>", "");
   }
 
   /**
@@ -53,10 +53,25 @@ public class SMSActivateAvailableService {
    */
   @NotNull
   public String getFullNameEn() {
-    return fullNameEn;
+    return fullNameEn.replaceAll("<.+?>", "");
   }
 
+  /**
+   * Returns the service supported activation forward.
+   *
+   * @return supported activation forward
+   */
   public boolean isForward() {
     return forward == 1;
+  }
+
+  @Override
+  public String toString() {
+    return "SMSActivateAvailableService{" +
+      "shortName='" + shortName + '\'' +
+      ", fullNameRu='" + fullNameRu + '\'' +
+      ", fullNameEn='" + fullNameEn + '\'' +
+      ", forward=" + forward +
+      '}';
   }
 }

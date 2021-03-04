@@ -8,12 +8,12 @@ import java.util.*;
 
 public class SMSActivateGetRentServicesAndCountriesResponse {
   /**
-   * Set with name operators.
+   * Map where key is name operators.
    */
   private Map<Integer, String> operators;
 
   /**
-   * Set with id countries.
+   * Map where key is id countries.
    */
   private Map<Integer, Integer> countries;
 
