@@ -41,4 +41,12 @@ public class SMSActivateBannedException extends SMSActivateBaseException {
   public String getMessage() {
     return String.format("%s: %s./%s: %s.", super.getEnglishMessage(), endDate, super.getRussianMessage(), endDate);
   }
+
+  @Override
+  public String toString() {
+    return "SMSActivateBannedException{" +
+      "endDate='" + endDate + '\'' +
+      ", message='" + getMessage() + '\'' +
+      '}';
+  }
 }

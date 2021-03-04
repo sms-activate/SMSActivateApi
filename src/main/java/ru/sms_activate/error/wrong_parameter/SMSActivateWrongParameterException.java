@@ -50,4 +50,12 @@ public class SMSActivateWrongParameterException extends SMSActivateBaseException
   public SMSActivateWrongParameter getWrongParameter() {
     return this.wrongParameter;
   }
+
+  @Override
+  public String toString() {
+    return "SMSActivateWrongParameterException{" +
+      "wrongParameter=" + wrongParameter +
+      ", message='" + getMessage() + '\'' +
+      '}';
+  }
 }

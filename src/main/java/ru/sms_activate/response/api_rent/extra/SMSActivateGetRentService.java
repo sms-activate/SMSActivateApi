@@ -30,7 +30,7 @@ public class SMSActivateGetRentService {
    */
   @NotNull
   public BigDecimal getCost() {
-    return cost;
+    return cost == null ? BigDecimal.ZERO : cost;
   }
 
   /**

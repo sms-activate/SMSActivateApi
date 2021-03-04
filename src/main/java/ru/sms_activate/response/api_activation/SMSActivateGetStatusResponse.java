@@ -55,4 +55,12 @@ public class SMSActivateGetStatusResponse {
   public SMSActivateGetStatusActivation getSMSActivateGetStatus() {
     return smsActivateGetStatusActivation;
   }
+
+  @Override
+  public String toString() {
+    return "SMSActivateGetStatusResponse{" +
+      "smsActivateGetStatusActivation=" + smsActivateGetStatusActivation +
+      ", codeFromSMS='" + codeFromSMS + '\'' +
+      '}';
+  }
 }

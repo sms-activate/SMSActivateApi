@@ -58,4 +58,11 @@ public class SMSActivateGetRentListResponse {
   public List<SMSActivateRentNumber> getRentNumberList() {
     return new ArrayList<>(values.values());
   }
+
+  @Override
+  public String toString() {
+    return "SMSActivateGetRentListResponse{" +
+      "values=" + values +
+      '}';
+  }
 }

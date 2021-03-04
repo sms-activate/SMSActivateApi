@@ -37,4 +37,11 @@ public class SMSActivateSetStatusResponse {
   public SMSActivateServerStatus getSMSActivateAccessStatus() {
     return smsActivateServerStatus;
   }
+
+  @Override
+  public String toString() {
+    return "SMSActivateSetStatusResponse{" +
+      "smsActivateServerStatus=" + smsActivateServerStatus +
+      '}';
+  }
 }

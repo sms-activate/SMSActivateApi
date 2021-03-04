@@ -136,4 +136,14 @@ public enum SMSActivateWrongParameter {
 
     return UNKNOWN;
   }
+
+  @Override
+  public String toString() {
+    return "SMSActivateWrongParameter{" +
+      "response='" + response + '\'' +
+      ", russianMessage='" + russianMessage + '\'' +
+      ", englishMessage='" + englishMessage + '\'' +
+      ", fromServer=" + fromServer +
+      '}';
+  }
 }

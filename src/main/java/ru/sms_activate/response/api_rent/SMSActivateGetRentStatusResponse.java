@@ -54,4 +54,13 @@ public class SMSActivateGetRentStatusResponse {
   public String getService() {
     return service;
   }
+
+  @Override
+  public String toString() {
+    return "SMSActivateGetRentStatusResponse{" +
+      "quantity=" + quantity +
+      ", service='" + service + '\'' +
+      ", values=" + values +
+      '}';
+  }
 }

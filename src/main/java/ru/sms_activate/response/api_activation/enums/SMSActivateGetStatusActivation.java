@@ -95,4 +95,13 @@ public enum SMSActivateGetStatusActivation {
 
     return UNKNOWN;
   }
+
+  @Override
+  public String toString() {
+    return "SMSActivateGetStatusActivation{" +
+      "response='" + response + '\'' +
+      ", russianMessage='" + russianMessage + '\'' +
+      ", englishMessage='" + englishMessage + '\'' +
+      '}';
+  }
 }

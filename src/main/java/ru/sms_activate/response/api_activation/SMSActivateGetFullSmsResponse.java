@@ -44,4 +44,12 @@ public class SMSActivateGetFullSmsResponse {
   public String getText() {
     return text;
   }
+
+  @Override
+  public String toString() {
+    return "SMSActivateGetFullSmsResponse{" +
+      "text='" + text + '\'' +
+      ", smsActivateStatusNumber=" + smsActivateStatusNumber +
+      '}';
+  }
 }

@@ -99,4 +99,13 @@ public enum SMSActivateServerStatus {
 
     return UNKNOWN;
   }
+
+  @Override
+  public String toString() {
+    return "SMSActivateServerStatus{" +
+      "response='" + response + '\'' +
+      ", russianMessage='" + russianMessage + '\'' +
+      ", englishMessage='" + englishMessage + '\'' +
+      '}';
+  }
 }

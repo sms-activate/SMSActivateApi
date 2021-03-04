@@ -38,4 +38,12 @@ public class SMSActivateUnknownException extends SMSActivateBaseException {
     String rus = super.getRussianMessage() + " " + this.messageUnknownError;
     return String.join(" | ", eng, rus);
   }
+
+  @Override
+  public String toString() {
+    return "SMSActivateUnknownException{" +
+      "messageUnknownError='" + messageUnknownError + '\'' +
+      ", message='" + getMessage() + '\'' +
+      '}';
+  }
 }

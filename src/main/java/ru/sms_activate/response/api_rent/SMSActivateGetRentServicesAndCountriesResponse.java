@@ -82,4 +82,13 @@ public class SMSActivateGetRentServicesAndCountriesResponse {
   public Set<String> getOperatorNameSet() {
     return new HashSet<>(operators.values());
   }
+
+  @Override
+  public String toString() {
+    return "SMSActivateGetRentServicesAndCountriesResponse{" +
+      "operators=" + operators +
+      ", countries=" + countries +
+      ", services=" + services +
+      '}';
+  }
 }

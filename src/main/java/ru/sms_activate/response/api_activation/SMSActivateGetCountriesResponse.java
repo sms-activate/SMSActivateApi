@@ -49,4 +49,11 @@ public class SMSActivateGetCountriesResponse {
   public List<SMSActivateCountryInfo> getSMSActivateGetCountryInfoList() {
     return new ArrayList<>(this.smsActivateCountryInfoMap.values());
   }
+
+  @Override
+  public String toString() {
+    return "SMSActivateGetCountriesResponse{" +
+      "smsActivateCountryInfoMap=" + smsActivateCountryInfoMap +
+      '}';
+  }
 }

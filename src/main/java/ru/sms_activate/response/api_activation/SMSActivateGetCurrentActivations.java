@@ -174,4 +174,13 @@ public class SMSActivateGetCurrentActivations {
   public int getQuant() {
     return quant;
   }
+
+  @Override
+  public String toString() {
+    return "SMSActivateGetCurrentActivations{" +
+      "data=" + data +
+      ", existNext=" + existNext +
+      ", quant=" + quant +
+      '}';
+  }
 }

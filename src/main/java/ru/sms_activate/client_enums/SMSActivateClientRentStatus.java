@@ -73,4 +73,13 @@ public enum SMSActivateClientRentStatus {
   public int getId() {
     return id;
   }
+
+  @Override
+  public String toString() {
+    return "SMSActivateClientRentStatus{" +
+      "id=" + id +
+      ", russianMessage='" + russianMessage + '\'' +
+      ", englishMessage='" + englishMessage + '\'' +
+      '}';
+  }
 }

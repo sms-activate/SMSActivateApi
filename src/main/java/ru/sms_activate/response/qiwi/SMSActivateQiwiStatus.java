@@ -92,4 +92,13 @@ public enum SMSActivateQiwiStatus {
 
     throw new SMSActivateUnknownException(response, "Unknown status of qiwi wallet.");
   }
+
+  @Override
+  public String toString() {
+    return "SMSActivateQiwiStatus{" +
+      "response='" + response + '\'' +
+      ", russianMessage='" + russianMessage + '\'' +
+      ", englishMessage='" + englishMessage + '\'' +
+      '}';
+  }
 }
