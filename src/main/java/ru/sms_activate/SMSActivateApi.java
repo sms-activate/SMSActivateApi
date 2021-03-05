@@ -5,6 +5,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ru.sms_activate.client_enums.SMSActivateClientRentStatus;
 import ru.sms_activate.client_enums.SMSActivateClientStatus;
+import ru.sms_activate.client_enums.SMSActivateLanguage;
 import ru.sms_activate.error.SMSActivateBannedException;
 import ru.sms_activate.error.SMSActivateUnknownException;
 import ru.sms_activate.error.base.SMSActivateBaseException;
@@ -13,6 +14,7 @@ import ru.sms_activate.error.wrong_parameter.SMSActivateWrongParameter;
 import ru.sms_activate.error.wrong_parameter.SMSActivateWrongParameterException;
 import ru.sms_activate.listener.SMSActivateExceptionListener;
 import ru.sms_activate.listener.SMSActivateWebClientListener;
+import ru.sms_activate.response.SMSActivateCountries;
 import ru.sms_activate.response.api_activation.*;
 import ru.sms_activate.response.api_activation.enums.SMSActivateGetStatusActivation;
 import ru.sms_activate.response.api_activation.enums.SMSActivateServerStatus;
@@ -22,6 +24,7 @@ import ru.sms_activate.response.api_rent.*;
 import ru.sms_activate.response.api_rent.enums.SMSActivateRentStatus;
 import ru.sms_activate.response.api_rent.extra.SMSActivateRentActivation;
 import ru.sms_activate.response.api_rent.extra.SMSActivateSMS;
+import ru.sms_activate.response.extra.SMSActivateCountry;
 import ru.sms_activate.response.qiwi.SMSActivateGetQiwiRequisitesResponse;
 
 import java.lang.reflect.Type;
@@ -1670,6 +1673,59 @@ public class SMSActivateApi {
     }.getType();
 
     return jsonParser.tryParseJson(jsonFromServer, type, validator);
+  }
+
+  /**
+   * Returns the list of countries supported rent.
+   *
+   * @param language language for request.
+   * @return list of countries supported rent.
+   * @throws SMSActivateWrongParameterException if one of parameters is incorrect.
+   * @throws SMSActivateUnknownException        if error type not documented.
+   */
+  @NotNull
+  public SMSActivateCountries getRentCountries(@NotNull SMSActivateLanguage language) throws SMSActivateBaseException {
+    return getByUrlAndLanguage(
+      SMSActivateMagicConstant.SPECIAL_API_RENT_URL,
+      SMSActivateAction.GET_RENT_COUNTRIES,
+      language
+    );
+  }
+
+  /**
+   * Returns the list of countries supported rent.
+   *
+   * @param language language for request.
+   * @return list of countries.
+   * @throws SMSActivateWrongParameterException if one of parameters is incorrect.
+   * @throws SMSActivateUnknownException        if error type not documented.
+   */
+  @NotNull
+  public SMSActivateCountries getAllCountriesByLanguage(@NotNull SMSActivateLanguage language) throws SMSActivateBaseException {
+    return getByUrlAndLanguage(
+      SMSActivateMagicConstant.SPECIAL_API_RENT_URL,
+      SMSActivateAction.GET_ALL_COUNTRIES,
+      language
+    );
+  }
+
+  @NotNull
+  private SMSActivateCountries getByUrlAndLanguage(
+    @NotNull String url,
+    @NotNull SMSActivateAction action,
+    @NotNull SMSActivateLanguage language
+  ) throws SMSActivateBaseException {
+    SMSActivateURLBuilder urlBuilder = new SMSActivateURLBuilder(url, SMSActivateURLKey.ACTION, action);
+    urlBuilder.append(SMSActivateURLKey.LANGUAGE, language.getShortName());
+
+    SMSActivateWebClient webClient = new SMSActivateWebClient(smsActivateWebClientListener);
+    String jsonFromServer = webClient.getOrThrowCommonException(urlBuilder, validator);
+
+    Type typeOf = new TypeToken<List<SMSActivateCountry>>() {
+    }.getType();
+    SMSActivateJsonParser jsonParser = new SMSActivateJsonParser();
+
+    return new SMSActivateCountries(jsonParser.tryParseJson(jsonFromServer, typeOf, validator));
   }
 
   /**

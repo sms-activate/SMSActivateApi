@@ -45,6 +45,26 @@ public class SMSActivateGetRentServices {
   }
 
   /**
+   * Returns the map countries.
+   *
+   * @return map countries.
+   */
+  @NotNull
+  public Map<String, String> getCountries() {
+    return countries;
+  }
+
+  /**
+   * Returns the map operators.
+   *
+   * @return map operators.
+   */
+  @NotNull
+  public Map<String, String> getOperators() {
+    return operators;
+  }
+
+  /**
    * Returns the full name operator by short name.
    *
    * @param shortName operator short name.
