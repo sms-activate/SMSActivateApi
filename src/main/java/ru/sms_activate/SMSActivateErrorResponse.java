@@ -1,5 +1,6 @@
 package ru.sms_activate;
 
+import com.google.gson.annotations.SerializedName;
 import org.jetbrains.annotations.NotNull;
 
 class SMSActivateErrorResponse {
@@ -11,6 +12,7 @@ class SMSActivateErrorResponse {
   /**
    * Message about error.
    */
+  @SerializedName(value = "message", alternate = {"msg"})
   private String message;
 
   /**

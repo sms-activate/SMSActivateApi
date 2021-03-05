@@ -62,4 +62,13 @@ public class SMSActivateServiceInfo {
   public String getShortName() {
     return serviceShortName;
   }
+
+  @Override
+  public String toString() {
+    return "SMSActivateServiceInfo{" +
+      "forward=" + forward +
+      ", countPhoneNumber=" + countPhoneNumber +
+      ", serviceShortName='" + serviceShortName + '\'' +
+      '}';
+  }
 }

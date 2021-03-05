@@ -12,6 +12,7 @@ public enum SMSActivateBaseTypeError {
   WAIT_CODE("STATUS_WAIT_CODE", "Ожидание первой смс.", "Waiting for the first SMS."),
   RENT_CANCEL("STATUS_CANCEL", "Аренда отменена с возвратом денег.", "Rent canceled with a refund."),
   RENT_FINISH("STATUS_FINISH", "Аренда оплачена и завершенна.", "Rent has been paid and finished"),
+  WRONG_ACTION("WRONG ACTION", "Неверный метод.", "Incorrect method.")
   ;
 
   /**
@@ -100,5 +101,14 @@ public enum SMSActivateBaseTypeError {
     }
 
     return UNKNOWN;
+  }
+
+  @Override
+  public String toString() {
+    return "SMSActivateBaseTypeError{" +
+      "englishMessage='" + englishMessage + '\'' +
+      ", russianMessage='" + russianMessage + '\'' +
+      ", response='" + response + '\'' +
+      '}';
   }
 }

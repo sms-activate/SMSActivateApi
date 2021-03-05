@@ -76,4 +76,13 @@ public class SMSActivateBaseException extends Exception {
   public String getMessage() {
     return String.join(" | ", englishMessage, russianMessage);
   }
+
+  @Override
+  public String toString() {
+    return "SMSActivateBaseException{" +
+      "type=" + type +
+      ", englishMessage='" + englishMessage + '\'' +
+      ", russianMessage='" + russianMessage + '\'' +
+      '}';
+  }
 }

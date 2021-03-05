@@ -48,4 +48,11 @@ public class SMSActivateGetMultiServiceNumberResponse {
   public List<SMSActivateActivation> getSMSActivateActivationList() {
     return smsActivateActivationList;
   }
+
+  @Override
+  public String toString() {
+    return "SMSActivateGetMultiServiceNumberResponse{" +
+      "smsActivateActivationList=" + smsActivateActivationList +
+      '}';
+  }
 }

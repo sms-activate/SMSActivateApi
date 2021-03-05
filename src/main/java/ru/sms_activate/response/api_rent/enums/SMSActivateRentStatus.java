@@ -74,4 +74,13 @@ public enum SMSActivateRentStatus {
   public String getMessage() {
     return String.join(" | ", englishMessage, russianMessage);
   }
+
+  @Override
+  public String toString() {
+    return "SMSActivateRentStatus{" +
+      "response='" + response + '\'' +
+      ", russianMessage='" + russianMessage + '\'' +
+      ", englishMessage='" + englishMessage + '\'' +
+      '}';
+  }
 }

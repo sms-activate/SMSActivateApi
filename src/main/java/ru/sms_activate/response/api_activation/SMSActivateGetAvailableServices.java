@@ -64,4 +64,11 @@ public class SMSActivateGetAvailableServices {
 
     throw new SMSActivateWrongParameterException(shortName + " service does not support call forwarding", "Сервис " + shortName + " не поддерживает переадресацию");
   }
+
+  @Override
+  public String toString() {
+    return "SMSActivateGetAvailableServices{" +
+      "smsActivateAvailableServiceList=" + smsActivateAvailableServiceList +
+      '}';
+  }
 }

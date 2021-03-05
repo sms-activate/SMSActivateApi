@@ -102,4 +102,11 @@ public class SMSActivateGetPricesResponse {
   public Set<String> getServicesByCountryId(@NotNull Integer countryId) throws SMSActivateWrongParameterException {
     return new HashSet<>(this.getSmsActivateGetPriceMap(countryId).keySet());
   }
+
+  @Override
+  public String toString() {
+    return "SMSActivateGetPricesResponse{" +
+      "smsActivateGetPriceMap=" + smsActivateGetPriceMap +
+      '}';
+  }
 }
