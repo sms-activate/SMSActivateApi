@@ -18,10 +18,7 @@ import ru.sms_activate.response.api_activation.enums.SMSActivateGetStatusActivat
 import ru.sms_activate.response.api_activation.enums.SMSActivateServerStatus;
 import ru.sms_activate.response.api_activation.enums.SMSActivateStatusNumber;
 import ru.sms_activate.response.api_activation.extra.*;
-import ru.sms_activate.response.api_rent.SMSActivateGetRentListResponse;
-import ru.sms_activate.response.api_rent.SMSActivateGetRentServices;
-import ru.sms_activate.response.api_rent.SMSActivateGetRentServicesAndCountriesResponse;
-import ru.sms_activate.response.api_rent.SMSActivateGetRentStatusResponse;
+import ru.sms_activate.response.api_rent.*;
 import ru.sms_activate.response.api_rent.enums.SMSActivateRentStatus;
 import ru.sms_activate.response.api_rent.extra.SMSActivateRentActivation;
 import ru.sms_activate.response.api_rent.extra.SMSActivateSMS;
@@ -1207,7 +1204,7 @@ public class SMSActivateApi {
     String jsonFromServer = new SMSActivateWebClient(smsActivateWebClientListener).getOrThrowCommonException(smsActivateURLBuilder, validator);
     SMSActivateJsonParser jsonParser = new SMSActivateJsonParser();
 
-    if (validator.containsSuccessStatus(jsonFromServer)) {
+    if (validator.checkOnNotContainsSuccessStatus(jsonFromServer)) {
       SMSActivateErrorResponse errorResponse = jsonParser.tryParseJson(jsonFromServer, new TypeToken<SMSActivateErrorResponse>() {
       }.getType(), validator);
 
@@ -1244,7 +1241,7 @@ public class SMSActivateApi {
     String jsonResponseFromServer = new SMSActivateWebClient(smsActivateWebClientListener).getOrThrowCommonException(smsActivateURLBuilder, validator);
     SMSActivateJsonParser jsonParser = new SMSActivateJsonParser();
 
-    if (validator.containsSuccessStatus(jsonResponseFromServer)) {
+    if (validator.checkOnNotContainsSuccessStatus(jsonResponseFromServer)) {
       SMSActivateErrorResponse errorResponse = jsonParser.tryParseJson(jsonResponseFromServer, new TypeToken<SMSActivateErrorResponse>() {
       }.getType(), validator);
       throw validator.getBaseExceptionByErrorNameOrUnknown(errorResponse.getMessage(), null);
@@ -1306,7 +1303,7 @@ public class SMSActivateApi {
     String jsonFromServer = new SMSActivateWebClient(smsActivateWebClientListener).getOrThrowCommonException(smsActivateURLBuilder, validator);
     SMSActivateJsonParser jsonParser = new SMSActivateJsonParser();
 
-    if (validator.containsSuccessStatus(jsonFromServer)) {
+    if (validator.checkOnNotContainsSuccessStatus(jsonFromServer)) {
       SMSActivateErrorResponse response = jsonParser.tryParseJson(jsonFromServer, new TypeToken<SMSActivateErrorResponse>() {
       }.getType(), validator);
       throw validator.getBaseExceptionByErrorNameOrUnknown(response.getMessage(), null);
@@ -1364,7 +1361,7 @@ public class SMSActivateApi {
     String jsonFromServer = new SMSActivateWebClient(smsActivateWebClientListener).getOrThrowCommonException(smsActivateURLBuilder, validator);
     SMSActivateJsonParser jsonParser = new SMSActivateJsonParser();
 
-    if (validator.containsSuccessStatus(jsonFromServer)) {
+    if (validator.checkOnNotContainsSuccessStatus(jsonFromServer)) {
       SMSActivateErrorResponse smsActivateErrorResponse = jsonParser.tryParseJson(jsonFromServer, new TypeToken<SMSActivateErrorResponse>() {
       }.getType(), validator);
       throw validator.getBaseExceptionByErrorNameOrUnknown(smsActivateErrorResponse.getMessage(), null);

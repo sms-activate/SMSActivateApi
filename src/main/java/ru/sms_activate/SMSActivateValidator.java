@@ -27,6 +27,11 @@ class SMSActivateValidator {
   private static final String SQL = "SQL";
 
   /**
+   * Error value status.
+   */
+  private static final String ERROR_STATUS = "error";
+
+  /**
    * Listener on error.
    */
   private SMSActivateExceptionListener smsActivateExceptionListener;
@@ -124,9 +129,20 @@ class SMSActivateValidator {
    * Returns the true if data contains success status else false.
    *
    * @param data data from server.
-   * @return true if data contains success status else false.
+   * @return true if data not contains success status else false.
    */
-  public boolean containsSuccessStatus(@NotNull String data) {
+  public boolean checkOnNotContainsSuccessStatus(@NotNull String data) {
     return !data.toLowerCase().contains(SUCCESS_STATUS);
+  }
+
+
+  /**
+   * Returns true if data contains error status else false.
+   *
+   * @param data data from server.
+   * @return true if data contains error status else false.
+   */
+  public boolean checkOnContainsErrorStatus(@NotNull String data) {
+    return data.toLowerCase().contains(ERROR_STATUS);
   }
 }
