@@ -1,6 +1,7 @@
 package ru.sms_activate.response.api_rent;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import ru.sms_activate.error.wrong_parameter.SMSActivateWrongParameter;
 import ru.sms_activate.error.wrong_parameter.SMSActivateWrongParameterException;
 import ru.sms_activate.response.api_rent.extra.SMSActivateGetRentService;
@@ -87,7 +88,7 @@ public class SMSActivateGetRentServices {
    *
    * @return all rent services info.
    */
-  @NotNull
+  @Nullable
   public Map<String, SMSActivateGetRentService> getAllRentServices() {
     return services;
   }
