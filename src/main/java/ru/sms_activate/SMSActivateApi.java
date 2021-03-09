@@ -73,7 +73,7 @@ public class SMSActivateApi {
   /**
    * Special validator for server responses.
    */
-  private final SMSActivateValidator validator = new SMSActivateValidator();
+  protected final SMSActivateValidator validator = new SMSActivateValidator();
 
   /**
    * Api key from site.
@@ -88,7 +88,7 @@ public class SMSActivateApi {
   /**
    * Listener on data from server.
    */
-  private SMSActivateWebClientListener smsActivateWebClientListener;
+  protected SMSActivateWebClientListener smsActivateWebClientListener;
 
   public SMSActivateApi() {
     this("");
@@ -1637,14 +1637,14 @@ public class SMSActivateApi {
   /**
    * Returns the rent services and countries supported rent by countryId without apiKey.
    *
-   * @param countyId country id.
+   * @param countryId country id.
    * @return services and countries supported rent by countryId.
    * @throws SMSActivateWrongParameterException if one of parameters is incorrect.
    * @throws SMSActivateUnknownException        if error type not documented.
    */
   @NotNull
-  public SMSActivateGetRentServices getRentServicesByCountryId(int countyId) throws SMSActivateBaseException {
-    return getRentServicesByCountryIdAndRentOperator(0, null);
+  public SMSActivateGetRentServices getRentServicesByCountryId(int countryId) throws SMSActivateBaseException {
+    return getRentServicesByCountryIdAndRentOperator(countryId, null);
   }
 
   /**

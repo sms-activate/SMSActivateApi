@@ -78,7 +78,7 @@ class SMSActivateWebClient {
    * @throws IOException if an I/O exception occurs.
    */
   @NotNull
-  private String load(@NotNull HttpURLConnection urlConnection) throws IOException {
+  protected String load(@NotNull HttpURLConnection urlConnection) throws IOException {
     InputStreamReader inputStreamReader;
 
     if (urlConnection.getErrorStream() == null) {
