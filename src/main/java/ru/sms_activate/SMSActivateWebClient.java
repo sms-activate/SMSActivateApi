@@ -52,7 +52,7 @@ class SMSActivateWebClient {
 
       HttpURLConnection urlConnection = (HttpURLConnection) smsActivateURLBuilder.build().openConnection();
       urlConnection.setRequestMethod("GET");
-      urlConnection.setRequestProperty("accept-Encoding", "gzip, json");
+      urlConnection.setRequestProperty("Accept-Encoding", "gzip, json");
 
       int statusCode = urlConnection.getResponseCode();
 
