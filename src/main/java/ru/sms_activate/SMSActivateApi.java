@@ -19,8 +19,14 @@ import ru.sms_activate.response.api_activation.*;
 import ru.sms_activate.response.api_activation.enums.SMSActivateGetStatusActivation;
 import ru.sms_activate.response.api_activation.enums.SMSActivateServerStatus;
 import ru.sms_activate.response.api_activation.enums.SMSActivateStatusNumber;
-import ru.sms_activate.response.api_activation.extra.*;
-import ru.sms_activate.response.api_rent.*;
+import ru.sms_activate.response.api_activation.extra.SMSActivateAvailableService;
+import ru.sms_activate.response.api_activation.extra.SMSActivateCountryInfo;
+import ru.sms_activate.response.api_activation.extra.SMSActivatePriceInfo;
+import ru.sms_activate.response.api_activation.extra.SMSActivateServiceInfo;
+import ru.sms_activate.response.api_rent.SMSActivateGetRentListResponse;
+import ru.sms_activate.response.api_rent.SMSActivateGetRentServices;
+import ru.sms_activate.response.api_rent.SMSActivateGetRentServicesAndCountriesResponse;
+import ru.sms_activate.response.api_rent.SMSActivateGetRentStatusResponse;
 import ru.sms_activate.response.api_rent.enums.SMSActivateRentStatus;
 import ru.sms_activate.response.api_rent.extra.SMSActivateRentActivation;
 import ru.sms_activate.response.api_rent.extra.SMSActivateSMS;
@@ -67,7 +73,7 @@ public class SMSActivateApi {
   /**
    * Special validator for server responses.
    */
-  private final SMSActivateValidator validator = new SMSActivateValidator();
+  protected final SMSActivateValidator validator = new SMSActivateValidator();
 
   /**
    * Api key from site.
@@ -82,7 +88,7 @@ public class SMSActivateApi {
   /**
    * Listener on data from server.
    */
-  private SMSActivateWebClientListener smsActivateWebClientListener;
+  protected SMSActivateWebClientListener smsActivateWebClientListener;
 
   public SMSActivateApi() {
     this("");
@@ -1631,14 +1637,14 @@ public class SMSActivateApi {
   /**
    * Returns the rent services and countries supported rent by countryId without apiKey.
    *
-   * @param countyId country id.
+   * @param countryId country id.
    * @return services and countries supported rent by countryId.
    * @throws SMSActivateWrongParameterException if one of parameters is incorrect.
    * @throws SMSActivateUnknownException        if error type not documented.
    */
   @NotNull
-  public SMSActivateGetRentServices getRentServicesByCountryId(int countyId) throws SMSActivateBaseException {
-    return getRentServicesByCountryIdAndRentOperator(0, null);
+  public SMSActivateGetRentServices getRentServicesByCountryId(int countryId) throws SMSActivateBaseException {
+    return getRentServicesByCountryIdAndRentOperator(countryId, null);
   }
 
   /**
@@ -1709,6 +1715,16 @@ public class SMSActivateApi {
     );
   }
 
+  /**
+   * Returns the list of countries.
+   *
+   * @param url      target url.
+   * @param action   type of query.
+   * @param language response language.
+   * @return list of countries.
+   * @throws SMSActivateWrongParameterException if one of parameters is incorrect.
+   * @throws SMSActivateUnknownException        if error type not documented.
+   */
   @NotNull
   private SMSActivateCountries getByUrlAndLanguage(
     @NotNull String url,
