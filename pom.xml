@@ -6,7 +6,7 @@
 
   <groupId>ru.sms-activate</groupId>
   <artifactId>SMSActivateApi</artifactId>
-  <version>1.5</version>
+  <version>1.5.1</version>
 
   <name>SMSActivateApi</name>
   <description>Lib for working with sms activate API.</description>
