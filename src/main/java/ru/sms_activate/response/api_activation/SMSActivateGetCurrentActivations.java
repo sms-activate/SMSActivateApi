@@ -127,6 +127,7 @@ public class SMSActivateGetCurrentActivations {
    * Returns the list current activation without forward.
    *
    * @return list current activation without forward.
+   * @throws SMSActivateBaseException if not current activations.
    */
   @NotNull
   public List<SMSActivateCurrentActivation> getCurrentActivationWithoutForward() throws SMSActivateBaseException {
