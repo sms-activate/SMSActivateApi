@@ -68,7 +68,7 @@ public class SMSActivateApi {
   /**
    * Max size of count activations in one request.
    */
-  private static final int MAX_BATCH_SIZE = 10;
+  public static final int MAX_BATCH_SIZE = 10;
 
   /**
    * Special validator for server responses.
@@ -168,9 +168,9 @@ public class SMSActivateApi {
    * @throws SMSActivateUnknownException        if error type not documented.
    *                                            <p>Types errors:</p>
    *                                            <p>Wrong parameter error types in this method:</p>
-   *                                              <ul>
-   *                                                <li>BAD_KEY - if your api-key is incorrect;</li>
-   *                                              </ul>
+   *                                            <ul>
+   *                                              <li>BAD_KEY - if your api-key is incorrect;</li>
+   *                                            </ul>
    */
   @NotNull
   public BigDecimal getBalance() throws SMSActivateBaseException {
@@ -185,9 +185,9 @@ public class SMSActivateApi {
    * @throws SMSActivateUnknownException        if error type not documented.
    *                                            <p>Types errors:</p>
    *                                            <p>Wrong parameter error types in this method:</p>
-   *                                              <ul>
-   *                                                <li>BAD_KEY - if your api-key is incorrect;</li>
-   *                                              </ul>
+   *                                            <ul>
+   *                                              <li>BAD_KEY - if your api-key is incorrect;</li>
+   *                                            </ul>
    */
   @NotNull
   public SMSActivateGetBalanceAndCashBackResponse getBalanceAndCashBack() throws SMSActivateBaseException {
@@ -205,9 +205,9 @@ public class SMSActivateApi {
    * @throws SMSActivateUnknownException        if error type not documented.
    *                                            <p>Types errors:</p>
    *                                            <p>Wrong parameter error types in this method:</p>
-   *                                              <ul>
-   *                                                <li>BAD_KEY - if your api-key is incorrect;</li>
-   *                                              </ul>
+   *                                            <ul>
+   *                                              <li>BAD_KEY - if your api-key is incorrect;</li>
+   *                                            </ul>
    */
   @NotNull
   public SMSActivateGetNumbersStatusResponse getNumbersStatusByDefaultSettingFromSite() throws SMSActivateBaseException {
@@ -224,11 +224,11 @@ public class SMSActivateApi {
    * @throws SMSActivateUnknownException        if error type not documented.
    *                                            <p>Types errors:</p>
    *                                            <p>Wrong parameter error types in this method:</p>
-   *                                              <ul>
-   *                                                <li>BAD_KEY - if your api-key is incorrect;</li>
-   *                                                <li>WRONG_COUNTRY_ID  - if country id is incorrect;</li>
-   *                                                <li>WRONG_OPERATOR - if operator or countryId is incorrect.</li>
-   *                                              </ul>
+   *                                            <ul>
+   *                                              <li>BAD_KEY - if your api-key is incorrect;</li>
+   *                                              <li>WRONG_COUNTRY_ID  - if country id is incorrect;</li>
+   *                                              <li>WRONG_OPERATOR - if operator or countryId is incorrect.</li>
+   *                                            </ul>
    */
   @NotNull
   public SMSActivateGetNumbersStatusResponse getNumbersStatus(@Nullable Integer countryId, @Nullable Set<String> operatorSet)
@@ -286,16 +286,16 @@ public class SMSActivateApi {
    * @throws SMSActivateBannedException         if your account has been banned.
    *                                            <p>Types errors:</p>
    *                                            <p>Base type error in this method:</p>
-   *                                              <ul>
-   *                                                <li>NO_NUMBERS - if currently no numbers;</li>
-   *                                                <li>NO_BALANCE - if your balance is less than the price;</li>
-   *                                              </ul>
-   *                                              <p>Wrong parameter type error:</p>
-   *                                              <ul>
-   *                                                <li>BAD_KEY - if your api-key is incorrect;</li>
-   *                                                <li>BAD_SERVICE - if service is incorrect;</li>
-   *                                                <li>WRONG_COUNTRY_ID  - if country id is incorrect.</li>
-   *                                              </ul>
+   *                                            <ul>
+   *                                              <li>NO_NUMBERS - if currently no numbers;</li>
+   *                                              <li>NO_BALANCE - if your balance is less than the price;</li>
+   *                                            </ul>
+   *                                            <p>Wrong parameter type error:</p>
+   *                                            <ul>
+   *                                              <li>BAD_KEY - if your api-key is incorrect;</li>
+   *                                              <li>BAD_SERVICE - if service is incorrect;</li>
+   *                                              <li>WRONG_COUNTRY_ID  - if country id is incorrect.</li>
+   *                                            </ul>
    */
   @NotNull
   public SMSActivateActivation getNumber(int countryId, @NotNull String service) throws SMSActivateBaseException {
@@ -307,23 +307,23 @@ public class SMSActivateApi {
    *
    * @param countryId id country.
    * @param service   service name for activation.
-   * @param forward true if need number phone with redirection else false.
+   * @param forward   true if need number phone with redirection else false.
    * @return activation.
    * @throws SMSActivateWrongParameterException if one of parameters is incorrect.
    * @throws SMSActivateUnknownException        if error type not documented.
    * @throws SMSActivateBannedException         if your account has been banned.
    *                                            <p>Types errors:</p>
    *                                            <p>Base type error in this method:</p>
-   *                                              <ul>
-   *                                                <li>NO_NUMBERS - if currently no numbers;</li>
-   *                                                <li>NO_BALANCE - if your balance is less than the price;</li>
-   *                                              </ul>
-   *                                              <p>Wrong parameter type error:</p>
-   *                                              <ul>
-   *                                                <li>BAD_KEY - if your api-key is incorrect;</li>
-   *                                                <li>BAD_SERVICE - if service is incorrect;</li>
-   *                                                <li>WRONG_COUNTRY_ID  - if country id is incorrect.</li>
-   *                                              </ul>
+   *                                            <ul>
+   *                                              <li>NO_NUMBERS - if currently no numbers;</li>
+   *                                              <li>NO_BALANCE - if your balance is less than the price;</li>
+   *                                            </ul>
+   *                                            <p>Wrong parameter type error:</p>
+   *                                            <ul>
+   *                                              <li>BAD_KEY - if your api-key is incorrect;</li>
+   *                                              <li>BAD_SERVICE - if service is incorrect;</li>
+   *                                              <li>WRONG_COUNTRY_ID  - if country id is incorrect.</li>
+   *                                            </ul>
    */
   @NotNull
   public SMSActivateActivation getNumber(int countryId, @NotNull String service, boolean forward) throws SMSActivateBaseException {
@@ -344,19 +344,19 @@ public class SMSActivateApi {
    * @throws SMSActivateBannedException         if your account has been banned.
    *                                            <p>Types errors:</p>
    *                                            <p>Base type error in this method:</p>
-   *                                               <ul>
-   *                                                 <li>NO_NUMBERS - if currently no numbers;</li>
-   *                                                <li>NO_BALANCE - if your balance is less than the price;</li>
-   *                                                <li>WRONG_COUNTRY_ID  - if country id is incorrect.</li>
-   *                                              </ul>
-   *                                              <p>Wrong parameter type error:</p>
-   *                                              <ul>
-   *                                                <li>BAD_KEY - if your api-key is incorrect;</li>
-   *                                                <li>WRONG_OPERATOR - if operator or countryId is incorrect;</li>
-   *                                                <li>BAD_SERVICE - if service is incorrect;</li>
-   *                                                <li>WRONG_PHONE_EXCEPTION - if one or more numbers prefix is incorrect.</li>
-   *                                                <li>WRONG_COUNTRY_ID  - if country id is incorrect.</li>
-   *                                              </ul>
+   *                                             <ul>
+   *                                               <li>NO_NUMBERS - if currently no numbers;</li>
+   *                                              <li>NO_BALANCE - if your balance is less than the price;</li>
+   *                                              <li>WRONG_COUNTRY_ID  - if country id is incorrect.</li>
+   *                                            </ul>
+   *                                            <p>Wrong parameter type error:</p>
+   *                                            <ul>
+   *                                              <li>BAD_KEY - if your api-key is incorrect;</li>
+   *                                              <li>WRONG_OPERATOR - if operator or countryId is incorrect;</li>
+   *                                              <li>BAD_SERVICE - if service is incorrect;</li>
+   *                                              <li>WRONG_PHONE_EXCEPTION - if one or more numbers prefix is incorrect.</li>
+   *                                              <li>WRONG_COUNTRY_ID  - if country id is incorrect.</li>
+   *                                            </ul>
    */
   @NotNull
   public SMSActivateActivation getNumber(
@@ -428,13 +428,13 @@ public class SMSActivateApi {
    * @throws SMSActivateBannedException         if your account has been banned.
    *                                            <p>Types errors:</p>
    *                                            <p>Wrong parameter error types in this method:</p>
-   *                                              <ul>
-   *                                                <li>BAD_KEY - if your api-key is incorrect;</li>
-   *                                                <li>WRONG_OPERATOR - if operator or countryId is incorrect;</li>
-   *                                                <li>BAD_SERVICE - if service is incorrect;</li>
-   *                                                <li>WRONG_COUNTRY_ID  - if country id is incorrect;</li>
-   *                                                <li>NOT_AVAILABLE  - if country not supported multi-service.</li>
-   *                                              </ul>
+   *                                            <ul>
+   *                                              <li>BAD_KEY - if your api-key is incorrect;</li>
+   *                                              <li>WRONG_OPERATOR - if operator or countryId is incorrect;</li>
+   *                                              <li>BAD_SERVICE - if service is incorrect;</li>
+   *                                              <li>WRONG_COUNTRY_ID  - if country id is incorrect;</li>
+   *                                              <li>NOT_AVAILABLE  - if country not supported multi-service.</li>
+   *                                            </ul>
    */
   @NotNull
   public SMSActivateGetMultiServiceNumberResponse getMultiServiceNumber(int countryId, @NotNull Set<String> multiServiceSet)
@@ -454,13 +454,13 @@ public class SMSActivateApi {
    * @throws SMSActivateBannedException         if your account has been banned.
    *                                            <p>Types errors:</p>
    *                                            <p>Wrong parameter error types in this method:</p>
-   *                                              <ul>
-   *                                                <li>BAD_KEY - if your api-key is incorrect;</li>
-   *                                                <li>WRONG_OPERATOR - if operator or countryId is incorrect;</li>
-   *                                                <li>BAD_SERVICE - if service is incorrect;</li>
-   *                                                <li>WRONG_COUNTRY_ID  - if country id is incorrect;</li>
-   *                                                <li>NOT_AVAILABLE  - if country not supported multi-service.</li>
-   *                                              </ul>
+   *                                            <ul>
+   *                                              <li>BAD_KEY - if your api-key is incorrect;</li>
+   *                                              <li>WRONG_OPERATOR - if operator or countryId is incorrect;</li>
+   *                                              <li>BAD_SERVICE - if service is incorrect;</li>
+   *                                              <li>WRONG_COUNTRY_ID  - if country id is incorrect;</li>
+   *                                              <li>NOT_AVAILABLE  - if country not supported multi-service.</li>
+   *                                            </ul>
    */
   @NotNull
   public SMSActivateGetMultiServiceNumberResponse getMultiServiceNumber(int countryId, @NotNull Map<String, Boolean> serviceMap) throws SMSActivateBaseException {
@@ -480,13 +480,13 @@ public class SMSActivateApi {
    * @throws SMSActivateBannedException         if your account has been banned.
    *                                            <p>Types errors:</p>
    *                                            <p>Wrong parameter error types in this method:</p>
-   *                                              <ul>
-   *                                                <li>BAD_KEY - if your api-key is incorrect;</li>
-   *                                                <li>WRONG_OPERATOR - if operator or countryId is incorrect;</li>
-   *                                                <li>BAD_SERVICE - if service is incorrect;</li>
-   *                                                <li>WRONG_COUNTRY_ID  - if country id is incorrect;</li>
-   *                                                <li>NOT_AVAILABLE  - if country not supported multi-service.</li>
-   *                                              </ul>
+   *                                            <ul>
+   *                                              <li>BAD_KEY - if your api-key is incorrect;</li>
+   *                                              <li>WRONG_OPERATOR - if operator or countryId is incorrect;</li>
+   *                                              <li>BAD_SERVICE - if service is incorrect;</li>
+   *                                              <li>WRONG_COUNTRY_ID  - if country id is incorrect;</li>
+   *                                              <li>NOT_AVAILABLE  - if country not supported multi-service.</li>
+   *                                            </ul>
    */
   @NotNull
   public SMSActivateGetMultiServiceNumberResponse getMultiServiceNumber(int countryId, @NotNull Map<String, Boolean> serviceMap, @Nullable Set<String> operatorSet) throws SMSActivateBaseException {
@@ -507,13 +507,13 @@ public class SMSActivateApi {
    * @throws SMSActivateBannedException         if your account has been banned.
    *                                            <p>Types errors:</p>
    *                                            <p>Wrong parameter error types in this method:</p>
-   *                                              <ul>
-   *                                                <li>BAD_KEY - if your api-key is incorrect;</li>
-   *                                                <li>WRONG_OPERATOR - if operator or countryId is incorrect;</li>
-   *                                                <li>BAD_SERVICE - if service is incorrect;</li>
-   *                                                <li>WRONG_COUNTRY_ID  - if country id is incorrect;</li>
-   *                                                <li>NOT_AVAILABLE  - if country not supported multi-service.</li>
-   *                                              </ul>
+   *                                            <ul>
+   *                                              <li>BAD_KEY - if your api-key is incorrect;</li>
+   *                                              <li>WRONG_OPERATOR - if operator or countryId is incorrect;</li>
+   *                                              <li>BAD_SERVICE - if service is incorrect;</li>
+   *                                              <li>WRONG_COUNTRY_ID  - if country id is incorrect;</li>
+   *                                              <li>NOT_AVAILABLE  - if country not supported multi-service.</li>
+   *                                            </ul>
    */
   @NotNull
   private SMSActivateGetMultiServiceNumberResponse getMultiServiceNumber(
@@ -584,11 +584,11 @@ public class SMSActivateApi {
    * @throws SMSActivateUnknownException        if error type not documented.
    *                                            <p>Types errors:</p>
    *                                            <p>Wrong parameter error types in this method:</p>
-   *                                                <ul>
-   *                                                 <li>BAD_KEY - if your api-key is incorrect;</li>
-   *                                                 <li>BAD_STATUS - if service is incorrect;</li>
-   *                                                 <li>NO_ACTIVATION - if activation is not exist.</li>
-   *                                                </ul>
+   *                                            <ul>
+   *                                             <li>BAD_KEY - if your api-key is incorrect;</li>
+   *                                             <li>BAD_STATUS - if service is incorrect;</li>
+   *                                             <li>NO_ACTIVATION - if activation is not exist.</li>
+   *                                            </ul>
    */
   @NotNull
   public SMSActivateSetStatusResponse setStatus(int activationId, @NotNull SMSActivateClientStatus status)
@@ -619,11 +619,11 @@ public class SMSActivateApi {
    * @throws SMSActivateUnknownException        if error type not documented.
    *                                            <p>Types errors:</p>
    *                                            <p>Wrong parameter error types in this method:</p>
-   *                                                <ul>
-   *                                                 <li>BAD_KEY - if your api-key is incorrect;</li>
-   *                                                 <li>BAD_STATUS - if service is incorrect;</li>
-   *                                                 <li>NO_ACTIVATION - if activation is not exist.</li>
-   *                                                </ul>
+   *                                            <ul>
+   *                                             <li>BAD_KEY - if your api-key is incorrect;</li>
+   *                                             <li>BAD_STATUS - if service is incorrect;</li>
+   *                                             <li>NO_ACTIVATION - if activation is not exist.</li>
+   *                                            </ul>
    */
   @NotNull
   public SMSActivateSetStatusResponse setStatus(@NotNull SMSActivateActivation activation, @NotNull SMSActivateClientStatus status)
@@ -655,11 +655,11 @@ public class SMSActivateApi {
    * @throws SMSActivateUnknownException        if error type not documented.
    *                                            <p>Types errors:</p>
    *                                            <p>Wrong parameter error types in this method:</p>
-   *                                                <ul>
-   *                                                  <li>BAD_KEY - if your api-key is incorrect;</li>
-   *                                                  <li>BAD_STATUS - if service is incorrect;</li>
-   *                                                  <li>NO_ACTIVATION - if activation is not exist.</li>
-   *                                                </ul>
+   *                                            <ul>
+   *                                              <li>BAD_KEY - if your api-key is incorrect;</li>
+   *                                              <li>BAD_STATUS - if service is incorrect;</li>
+   *                                              <li>NO_ACTIVATION - if activation is not exist.</li>
+   *                                            </ul>
    */
   @NotNull
   public SMSActivateSetStatusResponse setStatusWithForwardPhone(
@@ -702,10 +702,10 @@ public class SMSActivateApi {
    * @throws SMSActivateUnknownException        if error type not documented.
    *                                            <p>Types errors:</p>
    *                                            <p>Wrong parameter error types in this method:</p>
-   *                                               <ul>
-   *                                                 <li>BAD_KEY - if your api-key is incorrect;</li>
-   *                                                 <li>NO_ACTIVATION - if activation is not exist.</li>
-   *                                               </ul>
+   *                                            <ul>
+   *                                              <li>BAD_KEY - if your api-key is incorrect;</li>
+   *                                              <li>NO_ACTIVATION - if activation is not exist.</li>
+   *                                            </ul>
    */
   @NotNull
   public SMSActivateGetStatusResponse getStatus(int activationId) throws SMSActivateBaseException {
@@ -740,10 +740,10 @@ public class SMSActivateApi {
    * @throws SMSActivateUnknownException        if error type not documented.
    *                                            <p>Types errors:</p>
    *                                            <p>Wrong parameter error types in this method:</p>
-   *                                               <ul>
-   *                                                 <li>BAD_KEY - if your api-key is incorrect;</li>
-   *                                                 <li>NO_ACTIVATION - if activation is not exist.</li>
-   *                                               </ul>
+   *                                            <ul>
+   *                                              <li>BAD_KEY - if your api-key is incorrect;</li>
+   *                                              <li>NO_ACTIVATION - if activation is not exist.</li>
+   *                                            </ul>
    */
   @NotNull
   public SMSActivateGetStatusResponse getStatus(@NotNull SMSActivateActivation activation) throws SMSActivateBaseException {
@@ -764,10 +764,10 @@ public class SMSActivateApi {
    * @throws SMSActivateUnknownException        if error type not documented.
    *                                            <p>Types errors:</p>
    *                                            <p>Wrong parameter error types in this method:</p>
-   *                                               <ul>
-   *                                                 <li>BAD_KEY - if your api-key is incorrect;</li>
-   *                                                 <li>NO_ACTIVATION - if activation is not exist.</li>
-   *                                               </ul>
+   *                                            <ul>
+   *                                              <li>BAD_KEY - if your api-key is incorrect;</li>
+   *                                              <li>NO_ACTIVATION - if activation is not exist.</li>
+   *                                            </ul>
    */
   @NotNull
   public SMSActivateGetFullSmsResponse getFullSms(int activationId) throws SMSActivateBaseException {
@@ -805,10 +805,10 @@ public class SMSActivateApi {
    * @throws SMSActivateUnknownException        if error type not documented.
    *                                            <p>Types errors:</p>
    *                                            <p>Wrong parameter error types in this method:</p>
-   *                                               <ul>
-   *                                                 <li>BAD_KEY - if your api-key is incorrect;</li>
-   *                                                 <li>NO_ACTIVATION - if activation is not exist.</li>
-   *                                               </ul>
+   *                                            <ul>
+   *                                              <li>BAD_KEY - if your api-key is incorrect;</li>
+   *                                              <li>NO_ACTIVATION - if activation is not exist.</li>
+   *                                            </ul>
    */
   @NotNull
   public SMSActivateGetFullSmsResponse getFullSms(@NotNull SMSActivateActivation activation) throws SMSActivateBaseException {
@@ -823,9 +823,9 @@ public class SMSActivateApi {
    * @throws SMSActivateUnknownException        if error type not documented.
    *                                            <p>Types errors:</p>
    *                                            <p>Wrong parameter error types in this method:</p>
-   *                                               <ul>
-   *                                                 <li>BAD_KEY - if your api-key is incorrect;</li>
-   *                                               </ul>
+   *                                            <ul>
+   *                                              <li>BAD_KEY - if your api-key is incorrect;</li>
+   *                                            </ul>
    */
   @NotNull
   public SMSActivateGetPricesResponse getAllPrices() throws SMSActivateBaseException {
@@ -841,10 +841,10 @@ public class SMSActivateApi {
    * @throws SMSActivateUnknownException        if error type not documented.
    *                                            <p>Types errors:</p>
    *                                            <p>Wrong parameter error types in this method:</p>
-   *                                               <ul>
-   *                                                 <li>BAD_KEY - if your api-key is incorrect;</li>
-   *                                                <li>WRONG_COUNTRY_ID  - if country id is incorrect.</li>
-   *                                               </ul>
+   *                                            <ul>
+   *                                              <li>BAD_KEY - if your api-key is incorrect;</li>
+   *                                             <li>WRONG_COUNTRY_ID  - if country id is incorrect.</li>
+   *                                            </ul>
    */
   @NotNull
   public SMSActivateGetPricesResponse getPricesAllServicesByCountryId(int countryId) throws SMSActivateBaseException {
@@ -860,10 +860,10 @@ public class SMSActivateApi {
    * @throws SMSActivateUnknownException        if error type not documented.
    *                                            <p>Types errors:</p>
    *                                            <p>Wrong parameter error types in this method:</p>
-   *                                               <ul>
-   *                                                 <li>BAD_KEY - if your api-key is incorrect;</li>
-   *                                                <li>WRONG_COUNTRY_ID  - if country id is incorrect.</li>
-   *                                               </ul>
+   *                                            <ul>
+   *                                              <li>BAD_KEY - if your api-key is incorrect;</li>
+   *                                             <li>WRONG_COUNTRY_ID  - if country id is incorrect.</li>
+   *                                            </ul>
    */
   @NotNull
   public SMSActivateGetPricesResponse getPricesAllCountryByServiceShortName(@NotNull String serviceShortName)
@@ -884,12 +884,12 @@ public class SMSActivateApi {
    * @throws SMSActivateUnknownException        if error type not documented.
    *                                            <p>Types errors:</p>
    *                                            <p>Wrong parameter error types in this method:</p>
-   *                                               <ul>
-   *                                                 <li>BAD_KEY - if your api-key is incorrect;</li>
-   *                                                 <li>WRONG_OPERATOR - if country id is incorrect;</li>
-   *                                                 <li>WRONG_SERVICE - if service is incorrect;</li>
-   *                                                <li>WRONG_COUNTRY_ID  - if country id is incorrect.</li>
-   *                                               </ul>
+   *                                            <ul>
+   *                                              <li>BAD_KEY - if your api-key is incorrect;</li>
+   *                                              <li>WRONG_OPERATOR - if country id is incorrect;</li>
+   *                                              <li>WRONG_SERVICE - if service is incorrect;</li>
+   *                                             <li>WRONG_COUNTRY_ID  - if country id is incorrect.</li>
+   *                                            </ul>
    */
   @NotNull
   public SMSActivateGetPricesResponse getPricesByCountryIdAndServiceShortName(@Nullable Integer countryId, @Nullable String serviceShortName)
@@ -930,9 +930,9 @@ public class SMSActivateApi {
    * @throws SMSActivateUnknownException        if error type not documented.
    *                                            <p>Types errors:</p>
    *                                            <p>Wrong parameter error types in this method:</p>
-   *                                               <ul>
-   *                                                 <li>BAD_KEY - if your api-key is incorrect;</li>
-   *                                               </ul>
+   *                                            <ul>
+   *                                              <li>BAD_KEY - if your api-key is incorrect;</li>
+   *                                            </ul>
    */
   @NotNull
   public SMSActivateGetCountriesResponse getCountries() throws SMSActivateBaseException {
@@ -958,9 +958,9 @@ public class SMSActivateApi {
    * @throws SMSActivateUnknownException        if error type not documented.
    *                                            <p>Types errors:</p>
    *                                            <p>Wrong parameter error types in this method:</p>
-   *                                               <ul>
-   *                                                 <li>BAD_KEY - if your api-key is incorrect;</li>
-   *                                               </ul>
+   *                                            <ul>
+   *                                              <li>BAD_KEY - if your api-key is incorrect;</li>
+   *                                            </ul>
    */
   @NotNull
   public SMSActivateGetQiwiRequisitesResponse getQiwiRequisites() throws SMSActivateBaseException {
@@ -975,23 +975,23 @@ public class SMSActivateApi {
    * Returns the activation for additional service by forwarding.
    *
    * @param parentActivation activation to get additional service.
-   * @param service service short name.
+   * @param service          service short name.
    * @return id activation for additional service by forwarding
    * @throws SMSActivateWrongParameterException if one of parameters is incorrect.
    * @throws SMSActivateUnknownException        if error type not documented.
    *                                            <p>Types errors:</p>
    *                                            <p>Base type error in this method:</p>
-   *                                               <ul>
-   *                                                 <li>NO_BALANCE  - if your balance is less than the price.</li>
-   *                                               </ul>
-   *                                               <p>Wrong parameter error types in this method:</p>
-   *                                               <ul>
-   *                                                 <li>BAD_KEY - if your api-key is incorrect;</li>
-   *                                                 <li>WRONG_ADDITIONAL_SERVICE  - if additional service is incorrect;</li>
-   *                                                 <li>WRONG_ACTIVATION_ID   - if id parent is incorrect;</li>
-   *                                                 <li>WRONG_SECURITY    - if trying to transfer an activation ID without forwarding, or a completed / inactive activation;</li>
-   *                                                 <li>REPEAT_ADDITIONAL_SERVICE     - if ordered again service that has already been purchased;</li>
-   *                                               </ul>
+   *                                            <ul>
+   *                                              <li>NO_BALANCE  - if your balance is less than the price.</li>
+   *                                            </ul>
+   *                                            <p>Wrong parameter error types in this method:</p>
+   *                                            <ul>
+   *                                              <li>BAD_KEY - if your api-key is incorrect;</li>
+   *                                              <li>WRONG_ADDITIONAL_SERVICE  - if additional service is incorrect;</li>
+   *                                              <li>WRONG_ACTIVATION_ID   - if id parent is incorrect;</li>
+   *                                              <li>WRONG_SECURITY    - if trying to transfer an activation ID without forwarding, or a completed / inactive activation;</li>
+   *                                              <li>REPEAT_ADDITIONAL_SERVICE     - if ordered again service that has already been purchased;</li>
+   *                                            </ul>
    */
   @NotNull
   public SMSActivateActivation getAdditionalService(@NotNull SMSActivateActivation parentActivation, @NotNull String service) throws SMSActivateBaseException {
@@ -1002,23 +1002,23 @@ public class SMSActivateApi {
    * Returns the activation for additional service by forwarding.
    *
    * @param parentActivationId id activation.
-   * @param service service short name.
+   * @param service            service short name.
    * @return id activation for additional service by forwarding
    * @throws SMSActivateWrongParameterException if one of parameters is incorrect.
    * @throws SMSActivateUnknownException        if error type not documented.
    *                                            <p>Types errors:</p>
    *                                            <p>Base type error in this method:</p>
-   *                                               <ul>
-   *                                                 <li>NO_BALANCE  - if your balance is less than the price.</li>
-   *                                               </ul>
-   *                                               <p>Wrong parameter error types in this method:</p>
-   *                                               <ul>
-   *                                                 <li>BAD_KEY - if your api-key is incorrect;</li>
-   *                                                 <li>WRONG_ADDITIONAL_SERVICE  - if additional service is incorrect;</li>
-   *                                                 <li>WRONG_ACTIVATION_ID   - if id parent is incorrect;</li>
-   *                                                 <li>WRONG_SECURITY    - if trying to transfer an activation ID without forwarding, or a completed / inactive activation;</li>
-   *                                                 <li>REPEAT_ADDITIONAL_SERVICE     - if ordered again service that has already been purchased;</li>
-   *                                               </ul>
+   *                                            <ul>
+   *                                              <li>NO_BALANCE  - if your balance is less than the price.</li>
+   *                                            </ul>
+   *                                            <p>Wrong parameter error types in this method:</p>
+   *                                            <ul>
+   *                                              <li>BAD_KEY - if your api-key is incorrect;</li>
+   *                                              <li>WRONG_ADDITIONAL_SERVICE  - if additional service is incorrect;</li>
+   *                                              <li>WRONG_ACTIVATION_ID   - if id parent is incorrect;</li>
+   *                                              <li>WRONG_SECURITY    - if trying to transfer an activation ID without forwarding, or a completed / inactive activation;</li>
+   *                                              <li>REPEAT_ADDITIONAL_SERVICE     - if ordered again service that has already been purchased;</li>
+   *                                            </ul>
    */
   @NotNull
   public SMSActivateActivation getAdditionalService(int parentActivationId, @NotNull String service) throws SMSActivateBaseException {
@@ -1054,10 +1054,10 @@ public class SMSActivateApi {
    * @throws SMSActivateUnknownException        if error type not documented.
    *                                            <p>Types errors:</p>
    *                                            <p>Wrong parameter error types in this method:</p>
-   *                                               <ul>
-   *                                                 <li>BAD_KEY - if your api-key is incorrect;</li>
-   *                                                <li>WRONG_COUNTRY_ID  - if country id is incorrect.</li>
-   *                                               </ul>
+   *                                            <ul>
+   *                                              <li>BAD_KEY - if your api-key is incorrect;</li>
+   *                                             <li>WRONG_COUNTRY_ID  - if country id is incorrect.</li>
+   *                                            </ul>
    */
   @NotNull
   public SMSActivateGetRentServicesAndCountriesResponse getRentServicesAndCountries(int countryId, @Nullable Set<String> operatorSet, int hours)
@@ -1104,16 +1104,16 @@ public class SMSActivateApi {
    * @throws SMSActivateUnknownException        if error type not documented.
    *                                            <p>Types errors:</p>
    *                                            <p>Base type error in this method:</p>
-   *                                              <ul>
-   *                                                <li>NO_NUMBERS - if currently no numbers;</li>
-   *                                                <li>NO_BALANCE - if your balance is less than the price;</li>
-   *                                              </ul>
-   *                                              <p>Wrong parameter type error:</p>
-   *                                              <ul>
-   *                                                <li>BAD_KEY - if your api-key is incorrect;</li>
-   *                                                <li>BAD_SERVICE - if service is incorrect;</li>
-   *                                                <li>ACCOUNT_INACTIVE  - if no free numbers.</li>
-   *                                              </ul>
+   *                                            <ul>
+   *                                              <li>NO_NUMBERS - if currently no numbers;</li>
+   *                                              <li>NO_BALANCE - if your balance is less than the price;</li>
+   *                                            </ul>
+   *                                            <p>Wrong parameter type error:</p>
+   *                                            <ul>
+   *                                              <li>BAD_KEY - if your api-key is incorrect;</li>
+   *                                              <li>BAD_SERVICE - if service is incorrect;</li>
+   *                                              <li>ACCOUNT_INACTIVE  - if no free numbers.</li>
+   *                                            </ul>
    */
   @NotNull
   public SMSActivateRentActivation getRentNumber(int countryId, @NotNull String service) throws SMSActivateBaseException {
@@ -1131,16 +1131,16 @@ public class SMSActivateApi {
    * @throws SMSActivateUnknownException        if error type not documented.
    *                                            <p>Types errors:</p>
    *                                            <p>Base type error in this method:</p>
-   *                                              <ul>
-   *                                                <li>NO_NUMBERS - if currently no numbers;</li>
-   *                                                <li>NO_BALANCE - if your balance is less than the price;</li>
-   *                                              </ul>
-   *                                              <p>Wrong parameter type error:</p>
-   *                                              <ul>
-   *                                                <li>BAD_KEY - if your api-key is incorrect;</li>
-   *                                                <li>BAD_SERVICE - if service is incorrect;</li>
-   *                                                <li>ACCOUNT_INACTIVE  - if no free numbers.</li>
-   *                                              </ul>
+   *                                            <ul>
+   *                                              <li>NO_NUMBERS - if currently no numbers;</li>
+   *                                              <li>NO_BALANCE - if your balance is less than the price;</li>
+   *                                            </ul>
+   *                                            <p>Wrong parameter type error:</p>
+   *                                            <ul>
+   *                                              <li>BAD_KEY - if your api-key is incorrect;</li>
+   *                                              <li>BAD_SERVICE - if service is incorrect;</li>
+   *                                              <li>ACCOUNT_INACTIVE  - if no free numbers.</li>
+   *                                            </ul>
    */
   @NotNull
   public SMSActivateRentActivation getRentNumber(int countryId, @NotNull String service, int hours) throws SMSActivateBaseException {
@@ -1160,18 +1160,18 @@ public class SMSActivateApi {
    * @throws SMSActivateUnknownException        if error type not documented.
    *                                            <p>Types errors:</p>
    *                                            <p>Base type error in this method:</p>
-   *                                              <ul>
-   *                                                <li>NO_NUMBERS - if currently no numbers;</li>
-   *                                                <li>NO_BALANCE - if your balance is less than the price;</li>
-   *                                              </ul>
-   *                                              <p>Wrong parameter type error:</p>
-   *                                              <ul>
-   *                                                <li>BAD_KEY - if your api-key is incorrect;</li>
-   *                                                <li>BAD_SERVICE - if service is incorrect;</li>
-   *                                                <li>ACCOUNT_INACTIVE  - if no free numbers;</li>
-   *                                                <li>WRONG_OPERATOR  - if operator is incorrect;</li>
-   *                                                <li>WRONG_COUNTRY_ID  - if country id is incorrect.</li>
-   *                                              </ul>
+   *                                            <ul>
+   *                                              <li>NO_NUMBERS - if currently no numbers;</li>
+   *                                              <li>NO_BALANCE - if your balance is less than the price;</li>
+   *                                            </ul>
+   *                                            <p>Wrong parameter type error:</p>
+   *                                            <ul>
+   *                                              <li>BAD_KEY - if your api-key is incorrect;</li>
+   *                                              <li>BAD_SERVICE - if service is incorrect;</li>
+   *                                              <li>ACCOUNT_INACTIVE  - if no free numbers;</li>
+   *                                              <li>WRONG_OPERATOR  - if operator is incorrect;</li>
+   *                                              <li>WRONG_COUNTRY_ID  - if country id is incorrect.</li>
+   *                                            </ul>
    */
   @NotNull
   public SMSActivateRentActivation getRentNumber(
@@ -1234,13 +1234,13 @@ public class SMSActivateApi {
    * @throws SMSActivateUnknownException        if error type not documented.
    *                                            <p>Types errors:</p>
    *                                            <p>Wrong parameter type error:</p>
-   *                                              <ul>
-   *                                                <li>BAD_KEY - if your api-key is incorrect;</li>
-   *                                                <li>NO_ID_RENT   - if is not input.</li>
-   *                                                <li>STATUS_WAIT_CODE    - if not sms.</li>
-   *                                                <li>STATUS_CANCEL     - if rent is canceled.</li>
-   *                                                <li>STATUS_FINISH      - if rent is finished.</li>
-   *                                              </ul>
+   *                                            <ul>
+   *                                              <li>BAD_KEY - if your api-key is incorrect;</li>
+   *                                              <li>NO_ID_RENT   - if is not input.</li>
+   *                                              <li>STATUS_WAIT_CODE    - if not sms.</li>
+   *                                              <li>STATUS_CANCEL     - if rent is canceled.</li>
+   *                                              <li>STATUS_FINISH      - if rent is finished.</li>
+   *                                            </ul>
    */
   @NotNull
   public SMSActivateGetRentStatusResponse getRentStatus(int rentId) throws SMSActivateBaseException {
@@ -1269,13 +1269,13 @@ public class SMSActivateApi {
    * @throws SMSActivateUnknownException        if error type not documented.
    *                                            <p>Types errors:</p>
    *                                            <p>Wrong parameter type error:</p>
-   *                                              <ul>
-   *                                                <li>BAD_KEY - if your api-key is incorrect;</li>
-   *                                                <li>NO_ID_RENT   - if is not input.</li>
-   *                                                <li>STATUS_WAIT_CODE    - if not sms.</li>
-   *                                                <li>STATUS_CANCEL     - if rent is canceled.</li>
-   *                                                <li>STATUS_FINISH      - if rent is finished.</li>
-   *                                              </ul>
+   *                                            <ul>
+   *                                              <li>BAD_KEY - if your api-key is incorrect;</li>
+   *                                              <li>NO_ID_RENT   - if is not input.</li>
+   *                                              <li>STATUS_WAIT_CODE    - if not sms.</li>
+   *                                              <li>STATUS_CANCEL     - if rent is canceled.</li>
+   *                                              <li>STATUS_FINISH      - if rent is finished.</li>
+   *                                            </ul>
    */
   @NotNull
   public SMSActivateGetRentStatusResponse getRentStatus(@NotNull SMSActivateRentActivation rentActivation) throws SMSActivateBaseException {
@@ -1292,15 +1292,15 @@ public class SMSActivateApi {
    * @throws SMSActivateUnknownException        if error type not documented.
    *                                            <p>Types errors:</p>
    *                                            <p>Wrong parameter type error:</p>
-   *                                              <ul>
-   *                                                <li>BAD_KEY - if your api-key is incorrect;</li>
-   *                                                <li>NO_ID_RENT - if is not input.</li>
-   *                                                <li>INCORRECT_STATUS - if status is incorrect.</li>
-   *                                                <li>CANT_CANCEL - if it is impossible to cancel the rent (more than 20 min.).</li>
-   *                                                <li>ALREADY_FINISH - if rent is finished.</li>
-   *                                                <li>ALREADY_CANCEL - if rent is canceled.</li>
-   *                                                <li>INVALID_PHONE - if id is incorrect.</li>
-   *                                              </ul>
+   *                                            <ul>
+   *                                              <li>BAD_KEY - if your api-key is incorrect;</li>
+   *                                              <li>NO_ID_RENT - if is not input.</li>
+   *                                              <li>INCORRECT_STATUS - if status is incorrect.</li>
+   *                                              <li>CANT_CANCEL - if it is impossible to cancel the rent (more than 20 min.).</li>
+   *                                              <li>ALREADY_FINISH - if rent is finished.</li>
+   *                                              <li>ALREADY_CANCEL - if rent is canceled.</li>
+   *                                              <li>INVALID_PHONE - if id is incorrect.</li>
+   *                                            </ul>
    */
   @NotNull
   public SMSActivateRentStatus setRentStatus(int rentId, @NotNull SMSActivateClientRentStatus status)
@@ -1331,15 +1331,15 @@ public class SMSActivateApi {
    * @throws SMSActivateUnknownException        if error type not documented.
    *                                            <p>Types errors:</p>
    *                                            <p>Wrong parameter type error:</p>
-   *                                              <ul>
-   *                                                <li>BAD_KEY - if your api-key is incorrect;</li>
-   *                                                <li>NO_ID_RENT - if is not input.</li>
-   *                                                <li>INCORRECT_STATUS - if status is incorrect.</li>
-   *                                                <li>CANT_CANCEL - if it is impossible to cancel the rent (more than 20 min.).</li>
-   *                                                <li>ALREADY_FINISH - if rent is finished.</li>
-   *                                                <li>ALREADY_CANCEL - if rent is canceled.</li>
-   *                                                <li>INVALID_PHONE - if id is incorrect.</li>
-   *                                              </ul>
+   *                                            <ul>
+   *                                              <li>BAD_KEY - if your api-key is incorrect;</li>
+   *                                              <li>NO_ID_RENT - if is not input.</li>
+   *                                              <li>INCORRECT_STATUS - if status is incorrect.</li>
+   *                                              <li>CANT_CANCEL - if it is impossible to cancel the rent (more than 20 min.).</li>
+   *                                              <li>ALREADY_FINISH - if rent is finished.</li>
+   *                                              <li>ALREADY_CANCEL - if rent is canceled.</li>
+   *                                              <li>INVALID_PHONE - if id is incorrect.</li>
+   *                                            </ul>
    */
   @NotNull
   public SMSActivateRentStatus setRentStatus(@NotNull SMSActivateRentActivation rentActivation, @NotNull SMSActivateClientRentStatus status)
@@ -1355,13 +1355,13 @@ public class SMSActivateApi {
    * @throws SMSActivateUnknownException        if error type not documented.
    *                                            <p>Types errors:</p>
    *                                            <p>Base type error in this method:</p>
-   *                                              <ul>
-   *                                                <li>NO_NUMBERS - if no rented phone numbers numbers.</li>
-   *                                              </ul>
-   *                                              <p>Wrong parameter type error:</p>
-   *                                              <ul>
-   *                                                <li>BAD_KEY - if your api-key is incorrect;</li>
-   *                                              </ul>
+   *                                            <ul>
+   *                                              <li>NO_NUMBERS - if no rented phone numbers numbers.</li>
+   *                                            </ul>
+   *                                            <p>Wrong parameter type error:</p>
+   *                                            <ul>
+   *                                              <li>BAD_KEY - if your api-key is incorrect;</li>
+   *                                            </ul>
    */
   @NotNull
   public SMSActivateGetRentListResponse getRentList() throws SMSActivateBaseException {
@@ -1505,9 +1505,9 @@ public class SMSActivateApi {
   /**
    * Returns the list of current activations.
    *
-   * @param start serial number of the first requested activation (default 0).
+   * @param start  serial number of the first requested activation (default 0).
    * @param length count activations in one query (default ({@value MAX_BATCH_SIZE})). <br>
-   * Maximum number of activations in one request - {@value MAX_BATCH_SIZE}
+   *               Maximum number of activations in one request - {@value MAX_BATCH_SIZE}
    * @return list of current activations.
    * @throws SMSActivateWrongParameterException if one of parameters is incorrect.
    * @throws SMSActivateUnknownException        if error type not documented.
@@ -1553,7 +1553,7 @@ public class SMSActivateApi {
 
   /**
    * Returns the list available services with info by country id.
-
+   *
    * @param countryId country id (default 0).
    * @return list available services with info by country id.
    * @throws SMSActivateWrongParameterException if one of parameters is incorrect.
@@ -1566,8 +1566,8 @@ public class SMSActivateApi {
     }
 
     SMSActivateURLBuilder smsActivateURLBuilder = new SMSActivateURLBuilder(
-      SMSActivateMagicConstant.SPECIAL_API_ACTIVATION_URL,
-      SMSActivateURLKey.ACT,
+      SMSActivateMagicConstant.MOBILE_API_URL,
+      SMSActivateURLKey.ACTION,
       SMSActivateAction.GET_AVAILABLE_SERVICES_BY_COUNTRY
     );
 
@@ -1650,7 +1650,7 @@ public class SMSActivateApi {
   /**
    * Returns the rent services and countries supported rent by countryId and rent operator without apiKey
    *
-   * @param countryId country id.
+   * @param countryId    country id.
    * @param rentOperator rent operator.
    * @return services and countries supported rent by countryId and rent operator.
    * @throws SMSActivateWrongParameterException if one of parameters is incorrect.
@@ -1709,7 +1709,7 @@ public class SMSActivateApi {
   @NotNull
   public SMSActivateCountries getAllCountriesByLanguage(@NotNull SMSActivateLanguage language) throws SMSActivateBaseException {
     return getByUrlAndLanguage(
-      SMSActivateMagicConstant.SPECIAL_API_RENT_URL,
+      SMSActivateMagicConstant.MOBILE_API_URL,
       SMSActivateAction.GET_ALL_COUNTRIES,
       language
     );

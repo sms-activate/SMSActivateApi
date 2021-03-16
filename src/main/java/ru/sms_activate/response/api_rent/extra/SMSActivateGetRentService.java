@@ -1,5 +1,6 @@
 package ru.sms_activate.response.api_rent.extra;
 
+import com.google.gson.annotations.SerializedName;
 import org.jetbrains.annotations.NotNull;
 
 import java.math.BigDecimal;
@@ -13,7 +14,8 @@ public class SMSActivateGetRentService {
   /**
    * Count phone numbers in service.
    */
-  private int quant;
+  @SerializedName("quant")
+  private SMSActivateRentQuant quant;
 
   /**
    * Name of service.
@@ -48,7 +50,7 @@ public class SMSActivateGetRentService {
    *
    * @return count phone numbers in service.
    */
-  public int getQuant() {
+  public SMSActivateRentQuant getQuant() {
     return quant;
   }
 

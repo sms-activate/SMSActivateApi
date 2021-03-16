@@ -24,7 +24,22 @@ public class SMSActivateGetRentServices {
    */
   private Map<String, SMSActivateGetRentService> services;
 
+  /**
+   * Time rent.
+   */
+  private int realHours;
+
   private SMSActivateGetRentServices() {
+  }
+
+  /**
+   * Returns the rent services.
+   *
+   * @return rent services
+   */
+  @NotNull
+  public Map<String, SMSActivateGetRentService> getServices() {
+    return services;
   }
 
   /**
