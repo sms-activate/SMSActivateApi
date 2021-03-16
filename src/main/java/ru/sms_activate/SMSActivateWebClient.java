@@ -18,12 +18,12 @@ class SMSActivateWebClient {
   /**
    * Counter of the number of requests.
    */
-  private static final AtomicInteger COUNT_REQUEST = new AtomicInteger();
+  protected static final AtomicInteger COUNT_REQUEST = new AtomicInteger();
 
   /**
    * Listener for every request.
    */
-  private final SMSActivateWebClientListener smsActivateWebClientListener;
+  protected final SMSActivateWebClientListener smsActivateWebClientListener;
 
   /**
    * Constructor with listener for every request.
