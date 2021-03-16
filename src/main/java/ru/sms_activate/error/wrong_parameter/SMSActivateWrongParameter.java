@@ -20,6 +20,8 @@ public enum SMSActivateWrongParameter {
   WRONG_OPERATOR("WRONG_OPERATOR", "Некорректный оператор.", "Wrong operator."),
   WRONG_SECURITY("WRONG_SECURITY", "Ошибка при попытке передать ID активации без переадресации, или же завершенной/не активной активации.", "An error occurred when trying to transfer an activation ID without forwarding, or a completed / inactive activation."),
   WRONG_SERVICE("WRONG_SERVICE", "Некорректные сервисы.", "Wrong services."),
+  BAD_OPERATOR("BAD_OPERATOR", WRONG_OPERATOR.getRussianMessage(), WRONG_OPERATOR.getEnglishMessage()),
+  BAD_COUNTRY("BAD_COUNTRY", WRONG_COUNTRY_ID.getRussianMessage(), WRONG_COUNTRY_ID.getEnglishMessage()),
   UNKNOWN("UNKNOWN", "Неизвестная ошибка.", "Unknown error."),
   ;
 
