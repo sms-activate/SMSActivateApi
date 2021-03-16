@@ -6,7 +6,7 @@
 
   <groupId>ru.sms-activate</groupId>
   <artifactId>SMSActivateApi</artifactId>
-  <version>1.5.1</version>
+  <version>1.5.2</version>
 
   <name>SMSActivateApi</name>
   <description>Lib for working with sms activate API.</description>
@@ -58,34 +58,6 @@
     </dependency>
   </dependencies>
 
-  <profiles>
-    <profile>
-      <id>deploy</id>
-      <build>
-        <plugins>
-          <plugin>
-            <groupId>org.apache.maven.plugins</groupId>
-            <artifactId>maven-gpg-plugin</artifactId>
-            <version>1.5</version>
-            <configuration>
-              <keyname>26C8BF67</keyname>
-              <passphrase>sms-activate</passphrase>
-            </configuration>
-            <executions>
-              <execution>
-                <id>sign-artifacts</id>
-                <phase>verify</phase>
-                <goals>
-                  <goal>sign</goal>
-                </goals>
-              </execution>
-            </executions>
-          </plugin>
-        </plugins>
-      </build>
-    </profile>
-  </profiles>
-
   <build>
     <plugins>
       <plugin>
@@ -129,6 +101,24 @@
           <nexusUrl>https://oss.sonatype.org/</nexusUrl>
           <autoReleaseAfterClose>true</autoReleaseAfterClose>
         </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-gpg-plugin</artifactId>
+        <version>1.5</version>
+        <configuration>
+          <keyname>26C8BF67</keyname>
+          <passphrase>sms-activate</passphrase>
+        </configuration>
+        <executions>
+          <execution>
+            <id>sign-artifacts</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>sign</goal>
+            </goals>
+          </execution>
+        </executions>
       </plugin>
     </plugins>
   </build>

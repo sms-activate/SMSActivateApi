@@ -1709,7 +1709,7 @@ public class SMSActivateApi {
   @NotNull
   public SMSActivateCountries getAllCountriesByLanguage(@NotNull SMSActivateLanguage language) throws SMSActivateBaseException {
     return getByUrlAndLanguage(
-      SMSActivateMagicConstant.SPECIAL_API_RENT_URL,
+      SMSActivateMagicConstant.MOBILE_API_URL,
       SMSActivateAction.GET_ALL_COUNTRIES,
       language
     );
