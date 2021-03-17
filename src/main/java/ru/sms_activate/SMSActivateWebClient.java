@@ -1,11 +1,11 @@
 package ru.sms_activate;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 import ru.sms_activate.error.SMSActivateUnknownException;
 import ru.sms_activate.error.base.SMSActivateBaseException;
 import ru.sms_activate.error.wrong_parameter.SMSActivateWrongParameterException;
 import ru.sms_activate.listener.SMSActivateWebClientListener;
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -18,12 +18,12 @@ class SMSActivateWebClient {
   /**
    * Counter of the number of requests.
    */
-  protected static final AtomicInteger COUNT_REQUEST = new AtomicInteger();
+  protected final AtomicInteger COUNT_REQUEST = new AtomicInteger();
 
   /**
    * Listener for every request.
    */
-  protected final SMSActivateWebClientListener smsActivateWebClientListener;
+  protected SMSActivateWebClientListener smsActivateWebClientListener;
 
   /**
    * Constructor with listener for every request.
@@ -32,6 +32,25 @@ class SMSActivateWebClient {
    */
   public SMSActivateWebClient(@Nullable SMSActivateWebClientListener smsActivateWebClientListener) {
     this.smsActivateWebClientListener = smsActivateWebClientListener;
+  }
+
+  /**
+   * Sets the listener.
+   *
+   * @param listener listener value.
+   */
+  public void setSmsActivateWebClientListener(@NotNull SMSActivateWebClientListener listener) {
+    this.smsActivateWebClientListener = listener;
+  }
+
+  /**
+   * Returns the request listener.
+   *
+   * @return request listener.
+   */
+  @Nullable
+  public SMSActivateWebClientListener getSmsActivateWebClientListener() {
+    return smsActivateWebClientListener;
   }
 
   /**
