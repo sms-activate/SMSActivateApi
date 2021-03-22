@@ -26,8 +26,7 @@ enum SMSActivateURLKey {
   ORDER("order"),
   ORDER_BY("orderBy"),
   ACT("act"),
-  OPERATOR_RENT_FORWARD("operatorRentForward"),
-  LANGUAGE("lang");
+  OPERATOR_RENT_FORWARD("operatorRentForward");
 
   /**
    * Name parameter in URL.
