@@ -23,6 +23,12 @@ public class SMSActivateCurrentActivation {
   private long phoneNumber;
 
   /**
+   * Create time of activation.
+   */
+  @SerializedName("createDate")
+  private long createTime;
+
+  /**
    * Service for activation.
    */
   private String service;
@@ -81,12 +87,22 @@ public class SMSActivateCurrentActivation {
     return phoneNumber;
   }
 
+  /**
+   * Returns the create time of activation.
+   *
+   * @return create time of activation
+   */
+  public long getCreateTime() {
+    return createTime;
+  }
+
   @Override
   public String toString() {
     return "SMSActivateCurrentActivation{" +
       "id=" + id +
       ", forward=" + forward +
       ", phoneNumber=" + phoneNumber +
+      ", createTime=" + createTime +
       ", service='" + service + '\'' +
       ", country=" + country +
       '}';
