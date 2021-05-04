@@ -38,6 +38,12 @@ public class SMSActivateCurrentActivation {
    */
   private int country;
 
+  /**
+   * Finish time of activation.
+   */
+  @SerializedName("finishDate")
+  private long finishTime;
+
   private SMSActivateCurrentActivation() {
   }
 
@@ -96,6 +102,15 @@ public class SMSActivateCurrentActivation {
     return createTime;
   }
 
+  /**
+   * Returns the finish time of activation.
+   *
+   * @return finish time of activation.
+   */
+  public long getFinishTime() {
+    return finishTime;
+  }
+
   @Override
   public String toString() {
     return "SMSActivateCurrentActivation{" +
@@ -103,8 +118,9 @@ public class SMSActivateCurrentActivation {
       ", forward=" + forward +
       ", phoneNumber=" + phoneNumber +
       ", createTime=" + createTime +
-      ", service='" + service + '\'' +
+      ", service=" + service +
       ", country=" + country +
+      ", finishTime=" + finishTime +
       '}';
   }
 }
