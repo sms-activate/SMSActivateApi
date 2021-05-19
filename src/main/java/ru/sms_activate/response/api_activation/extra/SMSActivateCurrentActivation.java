@@ -48,10 +48,8 @@ public class SMSActivateCurrentActivation {
   /**
    * Forward phone number for activation.
    */
-  @SerializedName(value = "forwardNumber", alternate = {
-    "forward"
-  })
-  private Long forwardPhone;
+  @SerializedName("forwardNumber")
+  private String forwardPhone;
 
   private SMSActivateCurrentActivation() {
   }
@@ -126,8 +124,8 @@ public class SMSActivateCurrentActivation {
    * @return forward phone number for activation.
    */
   @Nullable
-  private Long getForwardPhone() {
-    return forwardPhone == 0 ? null : forwardPhone;
+  public Long getForwardPhone() {
+    return forwardPhone.equals("") ? null : Long.getLong(forwardPhone);
   }
 
   @Override
