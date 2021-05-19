@@ -8,7 +8,7 @@
 <dependecy>
   <groupId>ru.sms-activate</groupId>
   <artifactId>SMSActivateApi</artifactId>
-  <version>1.0</version>
+  <version>1.5.8</version>
 </dependecy>
 ```
 
