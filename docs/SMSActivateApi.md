@@ -5,7 +5,7 @@
 [**getBalance**](SMSActivateApi.md#getBalance) | **GET** | Возращает текущий баланс на аккаунте.
 [**getBalanceAndCashBack**](SMSActivateApi.md#getBalanceAndCashBack) | **GET** | Возращает баланс и кэшбэк на аккаунте.
 [**getNumbersStatusByDefaultSettingFromSite**](SMSActivateApi.md#getNumbersStatusByDefaultSettingFromSite) | **GET** | Возращает информацию о доступных сервисах исходя из настроек сайтов.
-[**getNumbersStatus**](SMSActivateApi.md#getNumbersStatus) | **GET** | Возращает информаию о доступных сервисах.
+[**getNumbersStatus**](SMSActivateApi.md#getNumbersStatus) | **GET** | Возращает информацию о доступных сервисах.
 [**getNumber**](SMSActivateApi.md#getNumber) | **GET** | Возращает активацию.
 [**getMultiServiceNumber**](SMSActivateApi.md#getMultiServiceNumber) | **GET** | Возращает активацию для нескольких сервисов.
 [**setStatus**](SMSActivateApi.md#setStatus) | **GET** | Устанавливает статус активации.
@@ -14,7 +14,7 @@
 [**getFullSms**](SMSActivateApi.md#getFullSms) | **GET** | Возвращает полную смс, которая пришла на активацию.
 [**getAllPrices**](SMSActivateApi.md#getAllPrices) | **GET** | Возращает полный список цен на активации.
 [**getPricesAllServicesByCountryId**](SMSActivateApi.md#getPricesAllServicesByCountryId) | **GET** | Возращает полный список цен на активации по идентификатору страны.
-[**getPricesAllCountryByServiceShortName**](SMSActivateApi.md#getPricesAllCountryByServiceShortName) | **GET** | Возращает полный список цен на активации для всех стран по сервису.
+[**getPricesAllCountryByServiceShortName**](SMSActivateApi.md#getPricesAllCountryByServiceShortName) | **GET** | Возращает полный список цен на активаций для всех стран по выбранному сервису.
 [**getPricesByCountryIdAndServiceShortName**](SMSActivateApi.md#getPricesByCountryIdAndServiceShortName) | **GET** | Возращает полный список цен на активации стране и сервису. 
 [**getCountries**](SMSActivateApi.md#getCountries) | **GET** | Возращает полный список всех стран. 
 [**getQiwiRequisites**](SMSActivateApi.md#getQiwiRequisites) | **GET** | Возращает актуальные реквизиты Киви кошелька для пополнения баланса. 
