@@ -2,6 +2,7 @@ package ru.sms_activate.response.api_activation.extra;
 
 import com.google.gson.annotations.SerializedName;
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 public class SMSActivateCurrentActivation {
   /**
@@ -43,6 +44,12 @@ public class SMSActivateCurrentActivation {
    */
   @SerializedName("finishDate")
   private long finishTime;
+
+  /**
+   * Forward phone number for activation.
+   */
+  @SerializedName("forwardNumber")
+  private String forwardPhone;
 
   private SMSActivateCurrentActivation() {
   }
@@ -111,6 +118,16 @@ public class SMSActivateCurrentActivation {
     return finishTime;
   }
 
+  /**
+   * Returns the forward phone number for activation.
+   *
+   * @return forward phone number for activation.
+   */
+  @Nullable
+  public Long getForwardPhone() {
+    return forwardPhone.equals("") ? null : Long.getLong(forwardPhone);
+  }
+
   @Override
   public String toString() {
     return "SMSActivateCurrentActivation{" +
@@ -118,9 +135,10 @@ public class SMSActivateCurrentActivation {
       ", forward=" + forward +
       ", phoneNumber=" + phoneNumber +
       ", createTime=" + createTime +
-      ", service=" + service +
+      ", service='" + service + '\'' +
       ", country=" + country +
       ", finishTime=" + finishTime +
+      ", forwardPhone=" + forwardPhone +
       '}';
   }
 }
