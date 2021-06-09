@@ -51,7 +51,7 @@ import java.util.stream.Collectors;
  * @see SMSActivateWrongParameter
  * @see SMSActivateBaseTypeError
  */
-public class  SMSActivateApi {
+public class SMSActivateApi {
   /**
    * The minimal rent time.
    */
@@ -81,6 +81,8 @@ public class  SMSActivateApi {
    * Referral identifier.
    */
   private String ref = null;
+
+  private final String ANDROID_CONST = "5";
 
   /**
    * Listener on data from server.
@@ -707,7 +709,8 @@ public class  SMSActivateApi {
   @NotNull
   public SMSActivateGetStatusResponse getStatus(int activationId) throws SMSActivateBaseException {
     SMSActivateURLBuilder smsActivateURLBuilder = new SMSActivateURLBuilder(apiKey, SMSActivateAction.GET_STATUS);
-    smsActivateURLBuilder.append(SMSActivateURLKey.ID, String.valueOf(activationId));
+    smsActivateURLBuilder.append(SMSActivateURLKey.ID, String.valueOf(activationId))
+      .append(SMSActivateURLKey.OWNER, ANDROID_CONST);
 
     String code = null;
     String statusFromServer = new SMSActivateWebClient(smsActivateWebClientListener).getOrThrowCommonException(smsActivateURLBuilder, validator);
@@ -1205,7 +1208,8 @@ public class  SMSActivateApi {
       .append(SMSActivateURLKey.COUNTRY, String.valueOf(countryId))
       .append(SMSActivateURLKey.OPERATOR, operator)
       .append(SMSActivateURLKey.URL, urlWebhook)
-      .append(SMSActivateURLKey.SERVICE, service);
+      .append(SMSActivateURLKey.SERVICE, service)
+      .append(SMSActivateURLKey.OWNER, ANDROID_CONST);
 
     String jsonFromServer = new SMSActivateWebClient(smsActivateWebClientListener).getOrThrowCommonException(smsActivateURLBuilder, validator);
     SMSActivateJsonParser jsonParser = new SMSActivateJsonParser();
