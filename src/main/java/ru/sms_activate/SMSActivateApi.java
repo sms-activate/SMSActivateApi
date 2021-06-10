@@ -51,7 +51,7 @@ import java.util.stream.Collectors;
  * @see SMSActivateWrongParameter
  * @see SMSActivateBaseTypeError
  */
-public class  SMSActivateApi {
+public class SMSActivateApi {
   /**
    * The minimal rent time.
    */
