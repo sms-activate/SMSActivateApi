@@ -6,7 +6,7 @@ public class SMSActivateSMS {
   /**
    * Phone where the sms came from.
    */
-  private long phoneFrom;
+  private String phoneFrom;
 
   /**
    * Text sms.
@@ -26,7 +26,7 @@ public class SMSActivateSMS {
    *
    * @return phone from such a sms came.
    */
-  public long getPhoneFrom() {
+  public String getPhoneFrom() {
     return phoneFrom;
   }
 
